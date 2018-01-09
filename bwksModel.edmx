@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="brickWorksModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BrickCosts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrickId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bricks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mark" Type="varchar" MaxLength="100" />
+          <Property Name="Height" Type="float" />
+          <Property Name="Lenght" Type="float" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="Parameters" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Buildings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="DeliveryDistanse" Type="float" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DeliveryCosts">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CostPerKm" Type="float" />
+        </EntityType>
+        <EntityType Name="ManufacturedBricks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="BrickId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderedBricks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="BrickId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="OrderedDate" Type="date" Nullable="false" />
+          <Property Name="DeliveryCost" Type="float" />
+        </EntityType>
+        <EntityType Name="WallSizes">
+          <Key>
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="WallsLength" />
+            <PropertyRef Name="WallsHeight" />
+          </Key>
+          <Property Name="BuildingId" Type="int" Nullable="false" />
+          <Property Name="WallsLength" Type="float" Nullable="false" />
+          <Property Name="WallsHeight" Type="float" Nullable="false" />
+          <Property Name="NumberOfWalls" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.bricksdb.ordersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ordersView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderedDate" />
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="OrderedDate" Type="date" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="double" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bricks">
+          <End Role="Bricks" Type="Self.Bricks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BrickCosts" Type="Self.BrickCosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bricks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrickCosts">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Building">
+          <End Role="Buildings" Type="Self.Buildings" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WallSizes" Type="Self.WallSizes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WallSizes">
+              <PropertyRef Name="BuildingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuildingsClient">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Buildings" Type="Self.Buildings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buildings">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MF_Bricks">
+          <End Role="Bricks" Type="Self.Bricks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ManufacturedBricks" Type="Self.ManufacturedBricks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bricks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufacturedBricks">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OB_Bricks">
+          <End Role="Bricks" Type="Self.Bricks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderedBricks" Type="Self.OrderedBricks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bricks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedBricks">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OB_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderedBricks" Type="Self.OrderedBricks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedBricks">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="brickWorksModelStoreContainer">
+          <EntitySet Name="BrickCosts" EntityType="Self.BrickCosts" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="Bricks" EntityType="Self.Bricks" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="Buildings" EntityType="Self.Buildings" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="DeliveryCosts" EntityType="Self.DeliveryCosts" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="ManufacturedBricks" EntityType="Self.ManufacturedBricks" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="OrderedBricks" EntityType="Self.OrderedBricks" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="WallSizes" EntityType="Self.WallSizes" Schema="bricksdb" store:Type="Tables" />
+          <EntitySet Name="ordersView" EntityType="Self.ordersView" store:Type="Views" store:Schema="bricksdb">
+            <DefiningQuery>SELECT
+`ordersView`.`Id`, 
+`ordersView`.`OrderedDate`, 
+`ordersView`.`ClientId`, 
+`ordersView`.`Amount`
+FROM `ordersView` AS `ordersView`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bricks" Association="Self.FK_Bricks">
+            <End Role="Bricks" EntitySet="Bricks" />
+            <End Role="BrickCosts" EntitySet="BrickCosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Building" Association="Self.FK_Building">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="WallSizes" EntitySet="WallSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuildingsClient" Association="Self.FK_BuildingsClient">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Buildings" EntitySet="Buildings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MF_Bricks" Association="Self.FK_MF_Bricks">
+            <End Role="Bricks" EntitySet="Bricks" />
+            <End Role="ManufacturedBricks" EntitySet="ManufacturedBricks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OB_Bricks" Association="Self.FK_OB_Bricks">
+            <End Role="Bricks" EntitySet="Bricks" />
+            <End Role="OrderedBricks" EntitySet="OrderedBricks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OB_Orders" Association="Self.FK_OB_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderedBricks" EntitySet="OrderedBricks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Clients" Association="Self.FK_Orders_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="brickWorksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bwksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrickCosts" EntityType="brickWorksModel.BrickCost" />
+          <EntitySet Name="Bricks" EntityType="brickWorksModel.Brick" />
+          <EntitySet Name="Buildings" EntityType="brickWorksModel.Building" />
+          <EntitySet Name="Clients" EntityType="brickWorksModel.Client" />
+          <EntitySet Name="DeliveryCosts" EntityType="brickWorksModel.DeliveryCost" />
+          <EntitySet Name="ManufacturedBricks" EntityType="brickWorksModel.ManufacturedBrick" />
+          <EntitySet Name="OrderedBricks" EntityType="brickWorksModel.OrderedBrick" />
+          <EntitySet Name="Orders" EntityType="brickWorksModel.Order" />
+          <EntitySet Name="WallSizes" EntityType="brickWorksModel.WallSize" />
+          <EntitySet Name="ordersViews" EntityType="brickWorksModel.ordersView" />
+          <AssociationSet Name="FK_Bricks" Association="brickWorksModel.FK_Bricks">
+            <End Role="Brick" EntitySet="Bricks" />
+            <End Role="BrickCost" EntitySet="BrickCosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MF_Bricks" Association="brickWorksModel.FK_MF_Bricks">
+            <End Role="Brick" EntitySet="Bricks" />
+            <End Role="ManufacturedBrick" EntitySet="ManufacturedBricks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OB_Bricks" Association="brickWorksModel.FK_OB_Bricks">
+            <End Role="Brick" EntitySet="Bricks" />
+            <End Role="OrderedBrick" EntitySet="OrderedBricks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Building" Association="brickWorksModel.FK_Building">
+            <End Role="Building" EntitySet="Buildings" />
+            <End Role="WallSize" EntitySet="WallSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuildingsClient" Association="brickWorksModel.FK_BuildingsClient">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Building" EntitySet="Buildings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Clients" Association="brickWorksModel.FK_Orders_Clients">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OB_Orders" Association="brickWorksModel.FK_OB_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderedBrick" EntitySet="OrderedBricks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BrickCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrickId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Cost" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Brick" Relationship="brickWorksModel.FK_Bricks" FromRole="BrickCost" ToRole="Brick" />
+        </EntityType>
+        <EntityType Name="Brick">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Single" />
+          <Property Name="Lenght" Type="Single" />
+          <Property Name="Weight" Type="Single" />
+          <Property Name="Parameters" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BrickCosts" Relationship="brickWorksModel.FK_Bricks" FromRole="Brick" ToRole="BrickCost" />
+          <NavigationProperty Name="ManufacturedBricks" Relationship="brickWorksModel.FK_MF_Bricks" FromRole="Brick" ToRole="ManufacturedBrick" />
+          <NavigationProperty Name="OrderedBricks" Relationship="brickWorksModel.FK_OB_Bricks" FromRole="Brick" ToRole="OrderedBrick" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDistanse" Type="Single" />
+          <NavigationProperty Name="WallSizes" Relationship="brickWorksModel.FK_Building" FromRole="Building" ToRole="WallSize" />
+          <NavigationProperty Name="Client" Relationship="brickWorksModel.FK_BuildingsClient" FromRole="Building" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Buildings" Relationship="brickWorksModel.FK_BuildingsClient" FromRole="Client" ToRole="Building" />
+          <NavigationProperty Name="Orders" Relationship="brickWorksModel.FK_Orders_Clients" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="DeliveryCost">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="CostPerKm" Type="Single" />
+        </EntityType>
+        <EntityType Name="ManufacturedBrick">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="BrickId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brick" Relationship="brickWorksModel.FK_MF_Bricks" FromRole="ManufacturedBrick" ToRole="Brick" />
+        </EntityType>
+        <EntityType Name="OrderedBrick">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="BrickId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brick" Relationship="brickWorksModel.FK_OB_Bricks" FromRole="OrderedBrick" ToRole="Brick" />
+          <NavigationProperty Name="Order" Relationship="brickWorksModel.FK_OB_Orders" FromRole="OrderedBrick" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="OrderedDate" Type="DateTime" Nullable="false" />
+          <Property Name="DeliveryCost" Type="Single" />
+          <NavigationProperty Name="Client" Relationship="brickWorksModel.FK_Orders_Clients" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="OrderedBricks" Relationship="brickWorksModel.FK_OB_Orders" FromRole="Order" ToRole="OrderedBrick" />
+        </EntityType>
+        <EntityType Name="WallSize">
+          <Key>
+            <PropertyRef Name="BuildingId" />
+            <PropertyRef Name="WallsLength" />
+            <PropertyRef Name="WallsHeight" />
+          </Key>
+          <Property Name="BuildingId" Type="Int32" Nullable="false" />
+          <Property Name="WallsLength" Type="Single" Nullable="false" />
+          <Property Name="WallsHeight" Type="Single" Nullable="false" />
+          <Property Name="NumberOfWalls" Type="Int32" />
+          <NavigationProperty Name="Building" Relationship="brickWorksModel.FK_Building" FromRole="WallSize" ToRole="Building" />
+        </EntityType>
+        <EntityType Name="ordersView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderedDate" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="OrderedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bricks">
+          <End Type="brickWorksModel.Brick" Role="Brick" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.BrickCost" Role="BrickCost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brick">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrickCost">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MF_Bricks">
+          <End Type="brickWorksModel.Brick" Role="Brick" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.ManufacturedBrick" Role="ManufacturedBrick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brick">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufacturedBrick">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OB_Bricks">
+          <End Type="brickWorksModel.Brick" Role="Brick" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.OrderedBrick" Role="OrderedBrick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brick">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedBrick">
+              <PropertyRef Name="BrickId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Building">
+          <End Type="brickWorksModel.Building" Role="Building" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.WallSize" Role="WallSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Building">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WallSize">
+              <PropertyRef Name="BuildingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuildingsClient">
+          <End Type="brickWorksModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.Building" Role="Building" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Building">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Clients">
+          <End Type="brickWorksModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OB_Orders">
+          <End Type="brickWorksModel.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="brickWorksModel.OrderedBrick" Role="OrderedBrick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedBrick">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="brickWorksModelStoreContainer" CdmEntityContainer="bwksEntities">
+          <EntitySetMapping Name="BrickCosts">
+            <EntityTypeMapping TypeName="brickWorksModel.BrickCost">
+              <MappingFragment StoreEntitySet="BrickCosts">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BrickId" ColumnName="BrickId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bricks">
+            <EntityTypeMapping TypeName="brickWorksModel.Brick">
+              <MappingFragment StoreEntitySet="Bricks">
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buildings">
+            <EntityTypeMapping TypeName="brickWorksModel.Building">
+              <MappingFragment StoreEntitySet="Buildings">
+                <ScalarProperty Name="DeliveryDistanse" ColumnName="DeliveryDistanse" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="brickWorksModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryCosts">
+            <EntityTypeMapping TypeName="brickWorksModel.DeliveryCost">
+              <MappingFragment StoreEntitySet="DeliveryCosts">
+                <ScalarProperty Name="CostPerKm" ColumnName="CostPerKm" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManufacturedBricks">
+            <EntityTypeMapping TypeName="brickWorksModel.ManufacturedBrick">
+              <MappingFragment StoreEntitySet="ManufacturedBricks">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="BrickId" ColumnName="BrickId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderedBricks">
+            <EntityTypeMapping TypeName="brickWorksModel.OrderedBrick">
+              <MappingFragment StoreEntitySet="OrderedBricks">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="BrickId" ColumnName="BrickId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="brickWorksModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="DeliveryCost" ColumnName="DeliveryCost" />
+                <ScalarProperty Name="OrderedDate" ColumnName="OrderedDate" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WallSizes">
+            <EntityTypeMapping TypeName="brickWorksModel.WallSize">
+              <MappingFragment StoreEntitySet="WallSizes">
+                <ScalarProperty Name="NumberOfWalls" ColumnName="NumberOfWalls" />
+                <ScalarProperty Name="WallsHeight" ColumnName="WallsHeight" />
+                <ScalarProperty Name="WallsLength" ColumnName="WallsLength" />
+                <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordersViews">
+            <EntityTypeMapping TypeName="brickWorksModel.ordersView">
+              <MappingFragment StoreEntitySet="ordersView">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="OrderedDate" ColumnName="OrderedDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
