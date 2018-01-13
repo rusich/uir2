@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClientID" Type="int" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="100" />
           <Property Name="DeliveryDistanse" Type="float" />
@@ -85,7 +85,7 @@
           <Property Name="BuildingId" Type="int" Nullable="false" />
           <Property Name="WallsLength" Type="float" Nullable="false" />
           <Property Name="WallsHeight" Type="float" Nullable="false" />
-          <Property Name="NumberOfWalls" Type="int" />
+          <Property Name="NumberOfWalls" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'def.bricksdb.ordersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -94,12 +94,11 @@ warning 6002: The table/view 'def.bricksdb.ordersView' does not have a primary k
             <PropertyRef Name="Id" />
             <PropertyRef Name="OrderedDate" />
             <PropertyRef Name="ClientId" />
-            <PropertyRef Name="Amount" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="OrderedDate" Type="date" Nullable="false" />
           <Property Name="ClientId" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="double" Nullable="false" />
+          <Property Name="Amount" Type="double" />
         </EntityType>
         <Association Name="FK_Bricks">
           <End Role="Bricks" Type="Self.Bricks" Multiplicity="1">
@@ -318,7 +317,7 @@ FROM `ordersView` AS `ordersView`</DefiningQuery>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ClientID" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DeliveryDistanse" Type="Single" />
@@ -383,20 +382,19 @@ FROM `ordersView` AS `ordersView`</DefiningQuery>
           <Property Name="BuildingId" Type="Int32" Nullable="false" />
           <Property Name="WallsLength" Type="Single" Nullable="false" />
           <Property Name="WallsHeight" Type="Single" Nullable="false" />
-          <Property Name="NumberOfWalls" Type="Int32" />
+          <Property Name="NumberOfWalls" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Building" Relationship="brickWorksModel.FK_Building" FromRole="WallSize" ToRole="Building" />
         </EntityType>
         <EntityType Name="ordersView">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="OrderedDate" />
-            <PropertyRef Name="Amount" />
             <PropertyRef Name="ClientId" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="OrderedDate" Type="DateTime" Nullable="false" />
-          <Property Name="Amount" Type="Double" Nullable="false" />
           <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" />
         </EntityType>
         <Association Name="FK_Bricks">
           <End Type="brickWorksModel.Brick" Role="Brick" Multiplicity="1">
@@ -496,7 +494,7 @@ FROM `ordersView` AS `ordersView`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -594,8 +592,8 @@ FROM `ordersView` AS `ordersView`</DefiningQuery>
           <EntitySetMapping Name="ordersViews">
             <EntityTypeMapping TypeName="brickWorksModel.ordersView">
               <MappingFragment StoreEntitySet="ordersView">
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="OrderedDate" ColumnName="OrderedDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

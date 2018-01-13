@@ -16,7 +16,7 @@ namespace BrickWorks
     {
         public int Id { get; set; }
         public System.DateTime OrderedDate { get; set; }
-        public double Amount { get; set; }
         public int ClientId { get; set; }
+        public Nullable<double> Amount { get; set; }
     }
 }

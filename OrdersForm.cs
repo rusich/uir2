@@ -16,11 +16,18 @@ namespace BrickWorks
         private bwksEntities db;
         public OrdersForm()
         {
-            db = new bwksEntities();
-            InitializeComponent();
-            this.StyleManager = styleManager;
-            styleManager.Theme = MetroFramework.MetroThemeStyle.Light;
-            styleManager.Style = MetroFramework.MetroColorStyle.Yellow;
+            try
+            {
+                db = new bwksEntities();
+                InitializeComponent();
+                this.StyleManager = styleManager;
+                styleManager.Theme = MetroFramework.MetroThemeStyle.Light;
+                styleManager.Style = MetroFramework.MetroColorStyle.Yellow;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void OrdersForm_Load(object sender, EventArgs e)
@@ -30,14 +37,24 @@ namespace BrickWorks
 
         private void LoadOrders()
         {
-            ordersViewBindingSource.DataSource = db.ordersViews.ToList();
-            ordersGrid.DataSource = ordersViewBindingSource;
-            clientBindingSource.DataSource = db.Clients.ToList();
+            try
+            {
+                db = new bwksEntities();
+                ordersViewBindingSource.DataSource = db.ordersViews.ToList();
+                ordersGrid.DataSource = ordersViewBindingSource;
+                clientBindingSource.DataSource = db.Clients.ToList();
+            }
+            catch(Exception ex)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "\n\n\n"+ex.InnerException.Message, 
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
 
         private void lnkAdd_Click(object sender, EventArgs e)
         {
-            using (OrderAddEditForm frm = new OrderAddEditForm(new Order() { DeliveryCost = 100 }))
+            using (OrderAddEditForm frm = new OrderAddEditForm(new Order() { DeliveryCost = 0 }))
             {
                 frm.StyleManager = styleManager;
                 if (frm.ShowDialog(this) == DialogResult.OK)
@@ -71,8 +88,12 @@ namespace BrickWorks
                         Order ord = db.Orders.First(o => o.Id == id);
                         db.Orders.Remove(ord);
                         ordersViewBindingSource.RemoveAt(ordersGrid.Rows[i].Index);
+                        
                     }
                 }
+
+                db.SaveChanges();
+                LoadOrders();
             }
         }
 
@@ -107,6 +128,37 @@ namespace BrickWorks
         private void ordersGrid_DoubleClick(object sender, EventArgs e)
         {
             lnkEdit_Click(sender, e);
+        }
+
+        private void mtAbout_Click(object sender, EventArgs e)
+        {
+            using (AboutForm frm = new AboutForm())
+            {
+                frm.Theme = mtAbout.Theme;
+                frm.Style = mtAbout.Style;
+                frm.ShowDialog();
+            }
+        }
+
+        private void mtBricks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtClients_Click(object sender, EventArgs e)
+        {
+            using (ClientsForm frm = new ClientsForm())
+            {
+                frm.Theme = mtClients.Theme;
+                frm.Style = mtClients.Style;
+                frm.ShowDialog();
+                LoadOrders();
+            }
+        }
+
+        private void htmlLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

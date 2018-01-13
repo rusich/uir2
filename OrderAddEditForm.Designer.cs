@@ -98,7 +98,7 @@
             this.mteOrderId.SelectionStart = 0;
             this.mteOrderId.ShortcutsEnabled = true;
             this.mteOrderId.Size = new System.Drawing.Size(110, 23);
-            this.mteOrderId.TabIndex = 3;
+            this.mteOrderId.TabIndex = 1;
             this.mteOrderId.UseSelectable = true;
             this.mteOrderId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mteOrderId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -116,7 +116,7 @@
             this.mteOrderDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.mteOrderDate.Name = "mteOrderDate";
             this.mteOrderDate.Size = new System.Drawing.Size(110, 29);
-            this.mteOrderDate.TabIndex = 4;
+            this.mteOrderDate.TabIndex = 2;
             this.mteOrderDate.Value = new System.DateTime(2018, 1, 10, 1, 49, 35, 0);
             // 
             // mcbClient
@@ -129,7 +129,7 @@
             this.mcbClient.Location = new System.Drawing.Point(137, 155);
             this.mcbClient.Name = "mcbClient";
             this.mcbClient.Size = new System.Drawing.Size(222, 29);
-            this.mcbClient.TabIndex = 5;
+            this.mcbClient.TabIndex = 3;
             this.mcbClient.UseSelectable = true;
             this.mcbClient.ValueMember = "Id";
             // 
@@ -139,10 +139,10 @@
             // 
             // mbtnSave
             // 
-            this.mbtnSave.Location = new System.Drawing.Point(431, 357);
+            this.mbtnSave.Location = new System.Drawing.Point(451, 364);
             this.mbtnSave.Name = "mbtnSave";
             this.mbtnSave.Size = new System.Drawing.Size(75, 23);
-            this.mbtnSave.TabIndex = 6;
+            this.mbtnSave.TabIndex = 5;
             this.mbtnSave.Text = "Сохранить";
             this.mbtnSave.UseSelectable = true;
             this.mbtnSave.Click += new System.EventHandler(this.mbtnSave_Click);
@@ -182,7 +182,7 @@
             this.mteDelivery.SelectionStart = 0;
             this.mteDelivery.ShortcutsEnabled = true;
             this.mteDelivery.Size = new System.Drawing.Size(110, 23);
-            this.mteDelivery.TabIndex = 8;
+            this.mteDelivery.TabIndex = 4;
             this.mteDelivery.UseSelectable = true;
             this.mteDelivery.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mteDelivery.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -192,7 +192,7 @@
             this.AcceptButton = this.mbtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 410);
+            this.ClientSize = new System.Drawing.Size(550, 400);
             this.Controls.Add(this.mteDelivery);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.mbtnSave);

@@ -17,7 +17,7 @@ namespace BrickWorks
         public int BuildingId { get; set; }
         public float WallsLength { get; set; }
         public float WallsHeight { get; set; }
-        public Nullable<int> NumberOfWalls { get; set; }
+        public int NumberOfWalls { get; set; }
     
         public virtual Building Building { get; set; }
     }

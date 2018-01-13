@@ -26,12 +26,12 @@ namespace BrickWorks
         public Order OrderInfo {  get { return orderBindingSource.Current as Order; } }
         private void OrderAddEditForm_Load(object sender, EventArgs e)
         {
-          
+            
+
         }
 
         private void mbtnSave_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("click");
             orderBindingSource.EndEdit();
             DialogResult = DialogResult.OK;
             this.Close();

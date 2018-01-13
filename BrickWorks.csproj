@@ -49,11 +49,14 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Brick.cs">
       <DependentUpon>bwksModel.tt</DependentUpon>
     </Compile>
@@ -91,6 +100,18 @@
     </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>bwksModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientAddEditForm.Designer.cs">
+      <DependentUpon>ClientAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsForm.Designer.cs">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DeliveryCost.cs">
       <DependentUpon>bwksModel.tt</DependentUpon>
@@ -130,6 +151,15 @@
     <Compile Include="WallSize.cs">
       <DependentUpon>bwksModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientAddEditForm.resx">
+      <DependentUpon>ClientAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsForm.resx">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderAddEditForm.resx">
       <DependentUpon>OrderAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +168,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="bwksModel.edmx">
@@ -148,6 +179,7 @@
       <DependentUpon>bwksModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\ordersView.datasource" />
@@ -179,9 +211,12 @@
       <DependentUpon>bwksModel.edmx</DependentUpon>
       <LastGenOutput>bwksModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\delivery.png" />
+    <None Include="Resources\clients.png" />
+    <None Include="Resources\bricks.png" />
+    <None Include="Resources\about.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\delete.png" />
-    <None Include="Resources\add1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
