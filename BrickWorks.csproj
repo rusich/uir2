@@ -74,33 +74,11 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Brick.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BrickCost.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Building.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bwksModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bwksModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bwksModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bwksModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bwksModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Client.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Brick.cs" />
+    <Compile Include="BrickCost.cs" />
+    <Compile Include="BrickWorksModel.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="ClientAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,33 +91,23 @@
     <Compile Include="ClientsForm.Designer.cs">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeliveryCost.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DeliveryCost.cs" />
+    <Compile Include="ManufacturedBrick.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="OrderAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderAddEditForm.Designer.cs">
       <DependentUpon>OrderAddEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManufacturedBrick.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OrderedBrick.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="OrderedBrick.cs" />
     <Compile Include="OrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrdersForm.Designer.cs">
       <DependentUpon>OrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ordersView.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ordersview.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -148,9 +116,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="WallSize.cs">
-      <DependentUpon>bwksModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="WallSize.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,13 +137,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="bwksModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>bwksModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="bwksModel.edmx.diagram">
-      <DependentUpon>bwksModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
@@ -201,16 +160,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="bwksModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>bwksModel.edmx</DependentUpon>
-      <LastGenOutput>bwksModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="bwksModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>bwksModel.edmx</DependentUpon>
-      <LastGenOutput>bwksModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\delivery.png" />
     <None Include="Resources\clients.png" />
     <None Include="Resources\bricks.png" />

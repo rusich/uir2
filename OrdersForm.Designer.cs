@@ -278,7 +278,7 @@
             // 
             // ordersViewBindingSource
             // 
-            this.ordersViewBindingSource.DataSource = typeof(BrickWorks.ordersView);
+            this.ordersViewBindingSource.DataSource = typeof(BrickWorks.OrdersView);
             // 
             // OrdersForm
             // 

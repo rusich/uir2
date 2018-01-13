@@ -17,7 +17,7 @@ namespace BrickWorks
         {
             InitializeComponent();
             orderBindingSource.DataSource = obj;
-            using (bwksEntities db = new bwksEntities())
+            using (BrickWorksModel db = new BrickWorksModel())
             {
                 clientBindingSource.DataSource = db.Clients.ToList();
             }

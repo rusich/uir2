@@ -12,13 +12,13 @@ namespace BrickWorks
 {
     public partial class ClientAddEditForm : MetroFramework.Forms.MetroForm
     {
-        private bwksEntities db;
+        private BrickWorksModel db;
         public Client ClientInfo;
         public ClientAddEditForm(Client obj)
         {
             InitializeComponent();
             ClientInfo = obj;
-            db = new bwksEntities();
+            db = new BrickWorksModel();
             clientBindingSource.DataSource = ClientInfo;
         }
 

@@ -12,12 +12,12 @@ namespace BrickWorks
 {
     public partial class ClientsForm : MetroFramework.Forms.MetroForm
     {
-        private bwksEntities db;
+        private BrickWorksModel db;
         public ClientsForm()
         {
             InitializeComponent();
 
-            db = new bwksEntities();
+            db = new BrickWorksModel();
             LoadClients();
         }
 
@@ -105,7 +105,7 @@ namespace BrickWorks
                         try
                         {
                             await db.SaveChangesAsync();
-                            db = new bwksEntities();
+                            db = new BrickWorksModel();
                             LoadClients();
                         }
                         catch (Exception ex)

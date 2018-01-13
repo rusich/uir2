@@ -13,12 +13,12 @@ namespace BrickWorks
 {
     public partial class OrdersForm : MetroFramework.Forms.MetroForm
     {
-        private bwksEntities db;
+        private BrickWorksModel db;
         public OrdersForm()
         {
             try
             {
-                db = new bwksEntities();
+                db = new BrickWorksModel();
                 InitializeComponent();
                 this.StyleManager = styleManager;
                 styleManager.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -39,8 +39,8 @@ namespace BrickWorks
         {
             try
             {
-                db = new bwksEntities();
-                ordersViewBindingSource.DataSource = db.ordersViews.ToList();
+                db = new BrickWorksModel();
+                ordersViewBindingSource.DataSource = db.OrdersViews.ToList();
                 ordersGrid.DataSource = ordersViewBindingSource;
                 clientBindingSource.DataSource = db.Clients.ToList();
             }
@@ -111,8 +111,8 @@ namespace BrickWorks
                         try
                         {
                             await db.SaveChangesAsync();
-                            db.ordersViews.Load();
-                            db = new bwksEntities();
+                            db.OrdersViews.Load();
+                            db = new BrickWorksModel();
                             LoadOrders();
                         }
                         catch (Exception ex)
