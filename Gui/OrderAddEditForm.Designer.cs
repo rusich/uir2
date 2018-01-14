@@ -206,7 +206,7 @@
             this.MinimizeBox = false;
             this.Name = "OrderAddEditForm";
             this.Resizable = false;
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Информация о заказе";
             this.Load += new System.EventHandler(this.OrderAddEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();

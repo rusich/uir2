@@ -6,7 +6,7 @@ namespace BrickWorks
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("bricksdb.BrickCosts")]
+    [Table("BrickCosts")]
     public partial class BrickCost
     {
         public int Id { get; set; }

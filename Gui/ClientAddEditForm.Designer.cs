@@ -33,10 +33,10 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.mtId = new MetroFramework.Controls.MetroTextBox();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mtName = new MetroFramework.Controls.MetroTextBox();
             this.mtPhone = new MetroFramework.Controls.MetroTextBox();
             this.mbtnSave = new MetroFramework.Controls.MetroButton();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +98,10 @@
             this.mtId.UseSelectable = true;
             this.mtId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(BrickWorks.Client);
             // 
             // mtName
             // 
@@ -171,10 +175,6 @@
             this.mbtnSave.UseSelectable = true;
             this.mbtnSave.Click += new System.EventHandler(this.mbtnSave_Click);
             // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(BrickWorks.Client);
-            // 
             // ClientAddEditForm
             // 
             this.AcceptButton = this.mbtnSave;
@@ -192,7 +192,7 @@
             this.MinimizeBox = false;
             this.Name = "ClientAddEditForm";
             this.Resizable = false;
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Информация о клиенте";
             this.Load += new System.EventHandler(this.ClientAddEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();

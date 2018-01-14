@@ -6,7 +6,7 @@ namespace BrickWorks
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("bricksdb.OrderedBricks")]
+    [Table("OrderedBricks")]
     public partial class OrderedBrick
     {
         public int Id { get; set; }

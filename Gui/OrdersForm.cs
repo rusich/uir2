@@ -24,7 +24,7 @@ namespace BrickWorks
                 styleManager.Theme = MetroFramework.MetroThemeStyle.Light;
                 styleManager.Style = MetroFramework.MetroColorStyle.Yellow;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -39,14 +39,18 @@ namespace BrickWorks
         {
             try
             {
-                db = new BrickWorksModel();
-                ordersViewBindingSource.DataSource = db.OrdersViews.ToList();
-                ordersGrid.DataSource = ordersViewBindingSource;
+                var orders = db.Orders.Select(o => new OrdersSummary
+                {
+                    OrderId = o.Id,
+                    OrderedDate = o.OrderedDate,
+                    Client = o.Client.Name
+                }).OrderByDescending(d => d.OrderId);
+                ordersSummaryBindingSource.DataSource = orders.ToList();
                 clientBindingSource.DataSource = db.Clients.ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, "\n\n\n"+ex.InnerException.Message, 
+                MetroFramework.MetroMessageBox.Show(this, "\n\n\n" + ex.InnerException.Message,
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
@@ -87,8 +91,8 @@ namespace BrickWorks
                         int id = Convert.ToInt32(ordersGrid.Rows[i].Cells[0].Value);
                         Order ord = db.Orders.First(o => o.Id == id);
                         db.Orders.Remove(ord);
-                        ordersViewBindingSource.RemoveAt(ordersGrid.Rows[i].Index);
-                        
+                        ordersSummaryBindingSource.RemoveAt(ordersGrid.Rows[i].Index);
+
                     }
                 }
 
@@ -101,7 +105,7 @@ namespace BrickWorks
         {
             int id = Convert.ToInt32(ordersGrid.SelectedRows[0].Cells[0].Value);
             Order ord = db.Orders.First(o => o.Id == id);
-            if(ord!=null)
+            if (ord != null)
             {
                 using (OrderAddEditForm frm = new OrderAddEditForm(ord))
                 {
@@ -111,7 +115,6 @@ namespace BrickWorks
                         try
                         {
                             await db.SaveChangesAsync();
-                            db.OrdersViews.Load();
                             db = new BrickWorksModel();
                             LoadOrders();
                         }
@@ -120,7 +123,6 @@ namespace BrickWorks
                             MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
                 }
             }
         }
@@ -159,6 +161,18 @@ namespace BrickWorks
         private void htmlLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ordersGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (ordersGrid.SelectedRows.Count > 0)
+            {
+                lnkDelete.Enabled = true;
+                lnkEdit.Enabled = true;
+                return;
+            }
+            lnkDelete.Enabled = false;
+            lnkEdit.Enabled = false;
         }
     }
 }

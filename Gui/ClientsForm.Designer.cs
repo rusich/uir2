@@ -182,7 +182,7 @@
             this.MinimizeBox = false;
             this.Name = "ClientsForm";
             this.Resizable = false;
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Клиенты";
             this.Load += new System.EventHandler(this.ClientsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientsGrid)).EndInit();

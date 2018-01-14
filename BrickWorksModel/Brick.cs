@@ -6,27 +6,27 @@ namespace BrickWorks
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("bricksdb.Bricks")]
+    [Table("Bricks")]
     public partial class Brick
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Brick()
         {
-            BrickCosts = new HashSet<BrickCost>();
-            ManufacturedBricks = new HashSet<ManufacturedBrick>();
-            OrderedBricks = new HashSet<OrderedBrick>();
         }
 
         public int Id { get; set; }
 
-        [StringLength(100)]
+        [StringLength(200)]
         public string Mark { get; set; }
 
-        public float? Height { get; set; }
+        [Required]
+        public float Height { get; set; }
 
-        public float? Lenght { get; set; }
+        [Required]
+        public float Lenght { get; set; }
 
-        public float? Weight { get; set; }
+        [Required]
+        public float Width { get; set; }
 
         [StringLength(40)]
         public string Parameters { get; set; }

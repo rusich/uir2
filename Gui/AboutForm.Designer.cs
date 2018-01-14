@@ -75,7 +75,7 @@
             this.MinimizeBox = false;
             this.Name = "AboutForm";
             this.Resizable = false;
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "О программе";
             this.ResumeLayout(false);
             this.PerformLayout();

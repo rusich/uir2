@@ -6,18 +6,13 @@ namespace BrickWorks
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("bricksdb.ManufacturedBricks")]
-    public partial class ManufacturedBrick
+    [Table("DeliveryCosts")]
+    public partial class DeliveryCost
     {
-        public int Id { get; set; }
-
+        [Key]
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
-
-        public int BrickId { get; set; }
-
-        public int Quantity { get; set; }
-
-        public virtual Brick Brick { get; set; }
+        [Required]
+        public float CostPerKm { get; set; }
     }
 }
