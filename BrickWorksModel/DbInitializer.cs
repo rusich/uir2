@@ -31,7 +31,7 @@ namespace BrickWorks
 
             bricks.Add(new Brick
             {
-                Mark = "Кирпич керамический пустотелый утолщенный рядовой",
+                Mark = "Кирпич керамический пустотелый утолщенный",
                 Lenght = 0.25F,
                 Width = 0.12F,
                 Height = 0.065F,
@@ -43,7 +43,7 @@ namespace BrickWorks
 
             bricks.Add(new Brick
             {
-                Mark = "Кирпич керамический полнотелый одинарный рядовой М200",
+                Mark = "Кирпич полнотелый одинарный М200",
                 Lenght = 0.25F,
                 Width = 0.12F,
                 Height = 0.065F,
@@ -55,7 +55,7 @@ namespace BrickWorks
 
             bricks.Add(new Brick
             {
-                Mark = "Кирпич керамический полнотелый одинарный рядовой М200",
+                Mark = "Кирпич полнотелый утолщенный М200",
                 Lenght = 0.25F,
                 Width = 0.12F,
                 Height = 0.14F,

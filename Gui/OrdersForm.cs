@@ -183,5 +183,15 @@ namespace BrickWorks
                 frm.ShowDialog();
             }
         }
+
+        private void mtBricks_Click(object sender, EventArgs e)
+        {
+            using (var frm = new BricksFrom())
+            {
+                frm.Theme = mtBricks.Theme;
+                frm.Style = mtBricks.Style;
+                frm.ShowDialog();
+            }
+        }
     }
 }

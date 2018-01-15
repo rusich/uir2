@@ -122,6 +122,12 @@
     <Compile Include="Gui\DeliveryForm.Designer.cs">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\ManufacturedBrickAddEditFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ManufacturedBrickAddEditFrom.Designer.cs">
+      <DependentUpon>ManufacturedBrickAddEditFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\OrderAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="Gui\DeliveryForm.resx">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ManufacturedBrickAddEditFrom.resx">
+      <DependentUpon>ManufacturedBrickAddEditFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\OrderAddEditForm.resx">
       <DependentUpon>OrderAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +196,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Brick.datasource" />
     <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\DeliveryCost.datasource" />
@@ -226,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\new_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

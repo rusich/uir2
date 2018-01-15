@@ -32,9 +32,9 @@
             this.mbtSave = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mtbCost = new MetroFramework.Controls.MetroTextBox();
+            this.deliveryCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mdtDate = new MetroFramework.Controls.MetroDateTime();
-            this.deliveryCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.deliveryCostBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,10 @@
             this.mtbCost.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbCost.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // deliveryCostBindingSource
+            // 
+            this.deliveryCostBindingSource.DataSource = typeof(BrickWorks.DeliveryCost);
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -109,10 +113,6 @@
             this.mdtDate.TabIndex = 3;
             this.mdtDate.Value = new System.DateTime(2018, 1, 15, 10, 50, 34, 0);
             this.mdtDate.ValueChanged += new System.EventHandler(this.mdtDate_ValueChanged);
-            // 
-            // deliveryCostBindingSource
-            // 
-            this.deliveryCostBindingSource.DataSource = typeof(BrickWorks.DeliveryCost);
             // 
             // DeliveryCostAddEditForm
             // 
