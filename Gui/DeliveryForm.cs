@@ -85,5 +85,13 @@ namespace BrickWorks
             costGrid.Style = this.Style;
             costGrid.Theme = this.Theme;
         }
+
+        private void costGrid_DoubleClick(object sender, EventArgs e)
+        {
+            if(costGrid.Rows.Count>0)
+            {
+                lnkEdit_Click(sender, e);
+            }
+        }
     }
 }

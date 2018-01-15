@@ -83,6 +83,7 @@ namespace BrickWorks
                 }
 
                 db.SaveChanges();
+                
                 gridBricks.Refresh();
             }
         }
@@ -100,6 +101,12 @@ namespace BrickWorks
                 brickBindingSource.DataSource = db.Bricks.ToList();
                 gridBricks.Refresh();
             }
+        }
+
+        private void gridBricks_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridBricks.Rows.Count > 0)
+                lnkEdit_Click(sender, e);
         }
     }
 }

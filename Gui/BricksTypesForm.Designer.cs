@@ -33,9 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridBricks = new MetroFramework.Controls.MetroGrid();
-            this.lnkDelete = new MetroFramework.Controls.MetroLink();
-            this.lnkEdit = new MetroFramework.Controls.MetroLink();
-            this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.markDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lenghtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@
             this.widthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parametersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lnkDelete = new MetroFramework.Controls.MetroLink();
+            this.lnkEdit = new MetroFramework.Controls.MetroLink();
+            this.lnkAdd = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.gridBricks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -101,52 +101,8 @@
             this.gridBricks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridBricks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBricks.Size = new System.Drawing.Size(690, 279);
-            this.gridBricks.TabIndex = 13;
-            // 
-            // lnkDelete
-            // 
-            this.lnkDelete.Image = global::BrickWorks.Properties.Resources.delete;
-            this.lnkDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lnkDelete.ImageSize = 32;
-            this.lnkDelete.Location = new System.Drawing.Point(260, 60);
-            this.lnkDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.lnkDelete.Name = "lnkDelete";
-            this.lnkDelete.Size = new System.Drawing.Size(81, 36);
-            this.lnkDelete.TabIndex = 16;
-            this.lnkDelete.Text = "Удалить";
-            this.lnkDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lnkDelete.UseSelectable = true;
-            this.lnkDelete.Click += new System.EventHandler(this.lnkDelete_Click);
-            // 
-            // lnkEdit
-            // 
-            this.lnkEdit.Image = global::BrickWorks.Properties.Resources.edit;
-            this.lnkEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lnkEdit.ImageSize = 32;
-            this.lnkEdit.Location = new System.Drawing.Point(127, 60);
-            this.lnkEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.lnkEdit.Name = "lnkEdit";
-            this.lnkEdit.Size = new System.Drawing.Size(122, 36);
-            this.lnkEdit.TabIndex = 15;
-            this.lnkEdit.Text = "Редактировать";
-            this.lnkEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lnkEdit.UseSelectable = true;
-            this.lnkEdit.Click += new System.EventHandler(this.lnkEdit_Click);
-            // 
-            // lnkAdd
-            // 
-            this.lnkAdd.Image = global::BrickWorks.Properties.Resources.add;
-            this.lnkAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lnkAdd.ImageSize = 32;
-            this.lnkAdd.Location = new System.Drawing.Point(27, 60);
-            this.lnkAdd.Margin = new System.Windows.Forms.Padding(0);
-            this.lnkAdd.Name = "lnkAdd";
-            this.lnkAdd.Size = new System.Drawing.Size(81, 36);
-            this.lnkAdd.TabIndex = 14;
-            this.lnkAdd.Text = "Новый";
-            this.lnkAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lnkAdd.UseSelectable = true;
-            this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);
+            this.gridBricks.TabIndex = 3;
+            this.gridBricks.DoubleClick += new System.EventHandler(this.gridBricks_DoubleClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -199,6 +155,51 @@
             // brickBindingSource
             // 
             this.brickBindingSource.DataSource = typeof(BrickWorks.Brick);
+            // 
+            // lnkDelete
+            // 
+            this.lnkDelete.Image = global::BrickWorks.Properties.Resources.delete;
+            this.lnkDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnkDelete.ImageSize = 32;
+            this.lnkDelete.Location = new System.Drawing.Point(260, 60);
+            this.lnkDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.lnkDelete.Name = "lnkDelete";
+            this.lnkDelete.Size = new System.Drawing.Size(81, 36);
+            this.lnkDelete.TabIndex = 2;
+            this.lnkDelete.Text = "Удалить";
+            this.lnkDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lnkDelete.UseSelectable = true;
+            this.lnkDelete.Click += new System.EventHandler(this.lnkDelete_Click);
+            // 
+            // lnkEdit
+            // 
+            this.lnkEdit.Image = global::BrickWorks.Properties.Resources.edit;
+            this.lnkEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnkEdit.ImageSize = 32;
+            this.lnkEdit.Location = new System.Drawing.Point(127, 60);
+            this.lnkEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.lnkEdit.Name = "lnkEdit";
+            this.lnkEdit.Size = new System.Drawing.Size(122, 36);
+            this.lnkEdit.TabIndex = 1;
+            this.lnkEdit.Text = "Редактировать";
+            this.lnkEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lnkEdit.UseSelectable = true;
+            this.lnkEdit.Click += new System.EventHandler(this.lnkEdit_Click);
+            // 
+            // lnkAdd
+            // 
+            this.lnkAdd.Image = global::BrickWorks.Properties.Resources.add;
+            this.lnkAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnkAdd.ImageSize = 32;
+            this.lnkAdd.Location = new System.Drawing.Point(27, 60);
+            this.lnkAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.lnkAdd.Name = "lnkAdd";
+            this.lnkAdd.Size = new System.Drawing.Size(81, 36);
+            this.lnkAdd.TabIndex = 0;
+            this.lnkAdd.Text = "Новый";
+            this.lnkAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lnkAdd.UseSelectable = true;
+            this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);
             // 
             // BricksTypesForm
             // 

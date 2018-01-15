@@ -89,7 +89,7 @@
             this.mtbSave.Location = new System.Drawing.Point(117, 167);
             this.mtbSave.Name = "mtbSave";
             this.mtbSave.Size = new System.Drawing.Size(75, 23);
-            this.mtbSave.TabIndex = 2;
+            this.mtbSave.TabIndex = 3;
             this.mtbSave.Text = "Сохранить";
             this.mtbSave.UseSelectable = true;
             this.mtbSave.Click += new System.EventHandler(this.mtbSave_Click);
@@ -120,7 +120,7 @@
             this.mtbHeight.SelectionStart = 0;
             this.mtbHeight.ShortcutsEnabled = true;
             this.mtbHeight.Size = new System.Drawing.Size(74, 23);
-            this.mtbHeight.TabIndex = 0;
+            this.mtbHeight.TabIndex = 1;
             this.mtbHeight.UseSelectable = true;
             this.mtbHeight.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbHeight.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -160,7 +160,7 @@
             this.mtbNum.SelectionStart = 0;
             this.mtbNum.ShortcutsEnabled = true;
             this.mtbNum.Size = new System.Drawing.Size(74, 23);
-            this.mtbNum.TabIndex = 0;
+            this.mtbNum.TabIndex = 2;
             this.mtbNum.UseSelectable = true;
             this.mtbNum.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbNum.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);

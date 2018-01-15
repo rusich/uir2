@@ -34,13 +34,13 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.mtbMark = new MetroFramework.Controls.MetroTextBox();
+            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mtbHeight = new MetroFramework.Controls.MetroTextBox();
             this.mtbWidth = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mtbLenght = new MetroFramework.Controls.MetroTextBox();
             this.mbtSave = new MetroFramework.Controls.MetroButton();
-            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,10 +106,14 @@
             this.mtbMark.SelectionStart = 0;
             this.mtbMark.ShortcutsEnabled = true;
             this.mtbMark.Size = new System.Drawing.Size(346, 23);
-            this.mtbMark.TabIndex = 1;
+            this.mtbMark.TabIndex = 0;
             this.mtbMark.UseSelectable = true;
             this.mtbMark.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbMark.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // brickBindingSource
+            // 
+            this.brickBindingSource.DataSource = typeof(BrickWorks.Brick);
             // 
             // mtbHeight
             // 
@@ -137,7 +141,7 @@
             this.mtbHeight.SelectionStart = 0;
             this.mtbHeight.ShortcutsEnabled = true;
             this.mtbHeight.Size = new System.Drawing.Size(88, 23);
-            this.mtbHeight.TabIndex = 1;
+            this.mtbHeight.TabIndex = 2;
             this.mtbHeight.UseSelectable = true;
             this.mtbHeight.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbHeight.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -168,7 +172,7 @@
             this.mtbWidth.SelectionStart = 0;
             this.mtbWidth.ShortcutsEnabled = true;
             this.mtbWidth.Size = new System.Drawing.Size(88, 23);
-            this.mtbWidth.TabIndex = 1;
+            this.mtbWidth.TabIndex = 3;
             this.mtbWidth.UseSelectable = true;
             this.mtbWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -199,7 +203,7 @@
             this.metroTextBox5.SelectionStart = 0;
             this.metroTextBox5.ShortcutsEnabled = true;
             this.metroTextBox5.Size = new System.Drawing.Size(346, 23);
-            this.metroTextBox5.TabIndex = 1;
+            this.metroTextBox5.TabIndex = 4;
             this.metroTextBox5.UseSelectable = true;
             this.metroTextBox5.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox5.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -249,14 +253,10 @@
             this.mbtSave.Location = new System.Drawing.Point(421, 225);
             this.mbtSave.Name = "mbtSave";
             this.mbtSave.Size = new System.Drawing.Size(75, 23);
-            this.mbtSave.TabIndex = 2;
+            this.mbtSave.TabIndex = 5;
             this.mbtSave.Text = "Сохранить";
             this.mbtSave.UseSelectable = true;
             this.mbtSave.Click += new System.EventHandler(this.mbtSave_Click);
-            // 
-            // brickBindingSource
-            // 
-            this.brickBindingSource.DataSource = typeof(BrickWorks.Brick);
             // 
             // BricksTypesAddEditFrom
             // 

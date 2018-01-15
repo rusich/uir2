@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mtbAddress = new MetroFramework.Controls.MetroTextBox();
+            this.buildingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mbSave = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.mtbDistance = new MetroFramework.Controls.MetroTextBox();
-            this.buildingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,10 +73,14 @@
             this.mtbAddress.SelectionStart = 0;
             this.mtbAddress.ShortcutsEnabled = true;
             this.mtbAddress.Size = new System.Drawing.Size(173, 23);
-            this.mtbAddress.TabIndex = 1;
+            this.mtbAddress.TabIndex = 0;
             this.mtbAddress.UseSelectable = true;
             this.mtbAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // buildingBindingSource
+            // 
+            this.buildingBindingSource.DataSource = typeof(BrickWorks.Building);
             // 
             // mbSave
             // 
@@ -127,10 +131,6 @@
             this.mtbDistance.UseSelectable = true;
             this.mtbDistance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbDistance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // buildingBindingSource
-            // 
-            this.buildingBindingSource.DataSource = typeof(BrickWorks.Building);
             // 
             // BuildingAddEditForm
             // 

@@ -35,12 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.costGrid = new MetroFramework.Controls.MetroGrid();
-            this.lnkDelete = new MetroFramework.Controls.MetroLink();
-            this.lnkEdit = new MetroFramework.Controls.MetroLink();
-            this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costPerKmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lnkDelete = new MetroFramework.Controls.MetroLink();
+            this.lnkEdit = new MetroFramework.Controls.MetroLink();
+            this.lnkAdd = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.costGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryCostBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,33 @@
             this.costGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.costGrid.Size = new System.Drawing.Size(342, 209);
             this.costGrid.TabIndex = 0;
+            this.costGrid.DoubleClick += new System.EventHandler(this.costGrid_DoubleClick);
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата (начало действия)";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // costPerKmDataGridViewTextBoxColumn
+            // 
+            this.costPerKmDataGridViewTextBoxColumn.DataPropertyName = "CostPerKm";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.costPerKmDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.costPerKmDataGridViewTextBoxColumn.HeaderText = "Стоимость за километр";
+            this.costPerKmDataGridViewTextBoxColumn.Name = "costPerKmDataGridViewTextBoxColumn";
+            this.costPerKmDataGridViewTextBoxColumn.ReadOnly = true;
+            this.costPerKmDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // deliveryCostBindingSource
+            // 
+            this.deliveryCostBindingSource.DataSource = typeof(BrickWorks.DeliveryCost);
             // 
             // lnkDelete
             // 
@@ -140,32 +167,6 @@
             this.lnkAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkAdd.UseSelectable = true;
             this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата (начало действия)";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // costPerKmDataGridViewTextBoxColumn
-            // 
-            this.costPerKmDataGridViewTextBoxColumn.DataPropertyName = "CostPerKm";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.costPerKmDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.costPerKmDataGridViewTextBoxColumn.HeaderText = "Стоимость за километр";
-            this.costPerKmDataGridViewTextBoxColumn.Name = "costPerKmDataGridViewTextBoxColumn";
-            this.costPerKmDataGridViewTextBoxColumn.ReadOnly = true;
-            this.costPerKmDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // deliveryCostBindingSource
-            // 
-            this.deliveryCostBindingSource.DataSource = typeof(BrickWorks.DeliveryCost);
             // 
             // DeliveryForm
             // 

@@ -80,5 +80,11 @@ namespace BrickWorks
                 }
             }
         }
+
+        private void gridBricks_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridBricks.Rows.Count > 0)
+                lnkEdit_Click(sender, e);
+        }
     }
 }

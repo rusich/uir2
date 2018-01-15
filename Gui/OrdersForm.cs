@@ -22,7 +22,7 @@ namespace BrickWorks
                 InitializeComponent();
                 this.StyleManager = styleManager;
                 styleManager.Theme = MetroFramework.MetroThemeStyle.Light;
-                styleManager.Style = MetroFramework.MetroColorStyle.Yellow;
+                styleManager.Style = MetroFramework.MetroColorStyle.Orange;
             }
             catch (Exception ex)
             {
@@ -75,8 +75,8 @@ namespace BrickWorks
                         db.Orders.Load();
                         LoadOrders();
                     }
+                    ordersGrid.Refresh(); 
                 }
-
             }
         }
 
@@ -100,6 +100,7 @@ namespace BrickWorks
 
                 db.SaveChanges();
                 LoadOrders();
+                ordersGrid.Refresh();
             }
         }
 
@@ -122,9 +123,11 @@ namespace BrickWorks
                         }
                         catch (Exception ex)
                         {
-                            MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
                         }
                     }
+                    ordersGrid.Refresh();
                 }
             }
         }
@@ -144,7 +147,7 @@ namespace BrickWorks
             }
         }
 
-    
+
 
         private void mtClients_Click(object sender, EventArgs e)
         {
@@ -194,6 +197,13 @@ namespace BrickWorks
                 frm.ShowDialog();
                 LoadOrders();
             }
+        }
+
+        private void ordersGrid_DoubleClick_1(object sender, EventArgs e)
+        {
+            if(ordersGrid.Rows.Count>0)
+                lnkEdit_Click(sender, e);
+
         }
     }
 }

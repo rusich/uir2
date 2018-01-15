@@ -68,27 +68,30 @@ namespace BrickWorks
 
         private async void lnkEdit_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(clientsGrid.SelectedRows[0].Cells[0].Value);
-            Client client = db.Clients.First(o => o.Id == id);
-            if (client != null)
+            if (clientsGrid.Rows.Count > 0)
             {
-                using (ClientAddEditForm frm = new ClientAddEditForm(client))
+                int id = Convert.ToInt32(clientsGrid.SelectedRows[0].Cells[0].Value);
+                Client client = db.Clients.First(o => o.Id == id);
+                if (client != null)
                 {
-                    frm.Theme = this.Theme;
-                    frm.Style = this.Style;
-                    if (frm.ShowDialog(this) == DialogResult.OK)
+                    using (ClientAddEditForm frm = new ClientAddEditForm(client))
                     {
-                        try
+                        frm.Theme = this.Theme;
+                        frm.Style = this.Style;
+                        if (frm.ShowDialog(this) == DialogResult.OK)
                         {
-                            await db.SaveChangesAsync();
-                            LoadClients();
+                            try
+                            {
+                                await db.SaveChangesAsync();
+                                LoadClients();
+                            }
+                            catch (Exception ex)
+                            {
+                                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
 
+                    }
                 }
             }
         }
@@ -114,6 +117,11 @@ namespace BrickWorks
                 db.SaveChanges();
                 LoadClients();
             }
+        }
+
+        private void clientsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

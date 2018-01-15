@@ -114,7 +114,8 @@
             this.gridBricks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridBricks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBricks.Size = new System.Drawing.Size(567, 217);
-            this.gridBricks.TabIndex = 0;
+            this.gridBricks.TabIndex = 5;
+            this.gridBricks.DoubleClick += new System.EventHandler(this.gridBricks_DoubleClick);
             // 
             // num
             // 
@@ -290,7 +291,7 @@
             this.lnkDelete.Margin = new System.Windows.Forms.Padding(0);
             this.lnkDelete.Name = "lnkDelete";
             this.lnkDelete.Size = new System.Drawing.Size(81, 36);
-            this.lnkDelete.TabIndex = 12;
+            this.lnkDelete.TabIndex = 2;
             this.lnkDelete.Text = "Удалить";
             this.lnkDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkDelete.UseSelectable = true;
@@ -305,7 +306,7 @@
             this.lnkEdit.Margin = new System.Windows.Forms.Padding(0);
             this.lnkEdit.Name = "lnkEdit";
             this.lnkEdit.Size = new System.Drawing.Size(122, 36);
-            this.lnkEdit.TabIndex = 11;
+            this.lnkEdit.TabIndex = 1;
             this.lnkEdit.Text = "Редактировать";
             this.lnkEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkEdit.UseSelectable = true;
@@ -320,7 +321,7 @@
             this.lnkAdd.Margin = new System.Windows.Forms.Padding(0);
             this.lnkAdd.Name = "lnkAdd";
             this.lnkAdd.Size = new System.Drawing.Size(81, 36);
-            this.lnkAdd.TabIndex = 10;
+            this.lnkAdd.TabIndex = 0;
             this.lnkAdd.Text = "Новый";
             this.lnkAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkAdd.UseSelectable = true;
@@ -335,7 +336,7 @@
             this.lnkBricks.Margin = new System.Windows.Forms.Padding(0);
             this.lnkBricks.Name = "lnkBricks";
             this.lnkBricks.Size = new System.Drawing.Size(138, 36);
-            this.lnkBricks.TabIndex = 13;
+            this.lnkBricks.TabIndex = 3;
             this.lnkBricks.Text = "Виды продукции";
             this.lnkBricks.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkBricks.UseSelectable = true;
@@ -350,7 +351,7 @@
             this.mlCost.Margin = new System.Windows.Forms.Padding(0);
             this.mlCost.Name = "mlCost";
             this.mlCost.Size = new System.Drawing.Size(73, 36);
-            this.mlCost.TabIndex = 14;
+            this.mlCost.TabIndex = 4;
             this.mlCost.Text = "Цены";
             this.mlCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mlCost.UseSelectable = true;

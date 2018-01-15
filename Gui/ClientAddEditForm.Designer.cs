@@ -32,44 +32,44 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.mtId = new MetroFramework.Controls.MetroTextBox();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mtName = new MetroFramework.Controls.MetroTextBox();
             this.mtPhone = new MetroFramework.Controls.MetroTextBox();
             this.mbtnSave = new MetroFramework.Controls.MetroButton();
             this.buildingsGrid = new MetroFramework.Controls.MetroGrid();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDistanseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buildingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.wallsGrid = new MetroFramework.Controls.MetroGrid();
+            this.wallsLengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wallsHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberOfWallsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.cDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.wallSizeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pbWallAdd = new System.Windows.Forms.PictureBox();
             this.pbBuildingAdd = new System.Windows.Forms.PictureBox();
-            this.wallsLengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wallsHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberOfWallsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wallSizeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryDistanseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buildingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildingsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallSizeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWallAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuildingAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wallSizeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -126,10 +126,14 @@
             this.mtId.SelectionStart = 0;
             this.mtId.ShortcutsEnabled = true;
             this.mtId.Size = new System.Drawing.Size(80, 23);
-            this.mtId.TabIndex = 1;
+            this.mtId.TabIndex = 0;
             this.mtId.UseSelectable = true;
             this.mtId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(BrickWorks.Client);
             // 
             // mtName
             // 
@@ -157,7 +161,7 @@
             this.mtName.SelectionStart = 0;
             this.mtName.ShortcutsEnabled = true;
             this.mtName.Size = new System.Drawing.Size(217, 23);
-            this.mtName.TabIndex = 2;
+            this.mtName.TabIndex = 1;
             this.mtName.UseSelectable = true;
             this.mtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -188,7 +192,7 @@
             this.mtPhone.SelectionStart = 0;
             this.mtPhone.ShortcutsEnabled = true;
             this.mtPhone.Size = new System.Drawing.Size(142, 23);
-            this.mtPhone.TabIndex = 3;
+            this.mtPhone.TabIndex = 2;
             this.mtPhone.UseSelectable = true;
             this.mtPhone.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtPhone.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -260,6 +264,25 @@
             this.buildingsGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.buildingsGrid_RowsRemoved);
             this.buildingsGrid.SelectionChanged += new System.EventHandler(this.buildingsGrid_SelectionChanged);
             this.buildingsGrid.BindingContextChanged += new System.EventHandler(this.buildingsGrid_BindingContextChanged);
+            this.buildingsGrid.DoubleClick += new System.EventHandler(this.buildingsGrid_DoubleClick);
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // deliveryDistanseDataGridViewTextBoxColumn
+            // 
+            this.deliveryDistanseDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDistanse";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.deliveryDistanseDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deliveryDistanseDataGridViewTextBoxColumn.HeaderText = "Расстояние";
+            this.deliveryDistanseDataGridViewTextBoxColumn.Name = "deliveryDistanseDataGridViewTextBoxColumn";
+            this.deliveryDistanseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deliveryDistanseDataGridViewTextBoxColumn.Width = 80;
             // 
             // colEdit
             // 
@@ -280,6 +303,10 @@
             this.colDel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colDel.Width = 18;
+            // 
+            // buildingBindingSource
+            // 
+            this.buildingBindingSource.DataSource = typeof(BrickWorks.Building);
             // 
             // metroLabel4
             // 
@@ -354,6 +381,31 @@
             this.wallsGrid.Size = new System.Drawing.Size(217, 177);
             this.wallsGrid.TabIndex = 7;
             this.wallsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.wallsGrid_CellContentClick);
+            this.wallsGrid.DoubleClick += new System.EventHandler(this.wallsGrid_DoubleClick);
+            // 
+            // wallsLengthDataGridViewTextBoxColumn
+            // 
+            this.wallsLengthDataGridViewTextBoxColumn.DataPropertyName = "WallsLength";
+            this.wallsLengthDataGridViewTextBoxColumn.HeaderText = "Длина";
+            this.wallsLengthDataGridViewTextBoxColumn.Name = "wallsLengthDataGridViewTextBoxColumn";
+            this.wallsLengthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wallsLengthDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // wallsHeightDataGridViewTextBoxColumn
+            // 
+            this.wallsHeightDataGridViewTextBoxColumn.DataPropertyName = "WallsHeight";
+            this.wallsHeightDataGridViewTextBoxColumn.HeaderText = "Высота";
+            this.wallsHeightDataGridViewTextBoxColumn.Name = "wallsHeightDataGridViewTextBoxColumn";
+            this.wallsHeightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wallsHeightDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // numberOfWallsDataGridViewTextBoxColumn
+            // 
+            this.numberOfWallsDataGridViewTextBoxColumn.DataPropertyName = "NumberOfWalls";
+            this.numberOfWallsDataGridViewTextBoxColumn.HeaderText = "Кол-во";
+            this.numberOfWallsDataGridViewTextBoxColumn.Name = "numberOfWallsDataGridViewTextBoxColumn";
+            this.numberOfWallsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numberOfWallsDataGridViewTextBoxColumn.Width = 50;
             // 
             // cEdit
             // 
@@ -373,6 +425,10 @@
             this.cDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.cDelete.Width = 18;
+            // 
+            // wallSizeBindingSource
+            // 
+            this.wallSizeBindingSource.DataSource = typeof(BrickWorks.WallSize);
             // 
             // dataGridViewImageColumn1
             // 
@@ -417,60 +473,6 @@
             this.pbBuildingAdd.TabStop = false;
             this.pbBuildingAdd.Click += new System.EventHandler(this.pbBuildingAdd_Click);
             // 
-            // wallsLengthDataGridViewTextBoxColumn
-            // 
-            this.wallsLengthDataGridViewTextBoxColumn.DataPropertyName = "WallsLength";
-            this.wallsLengthDataGridViewTextBoxColumn.HeaderText = "Длина";
-            this.wallsLengthDataGridViewTextBoxColumn.Name = "wallsLengthDataGridViewTextBoxColumn";
-            this.wallsLengthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wallsLengthDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // wallsHeightDataGridViewTextBoxColumn
-            // 
-            this.wallsHeightDataGridViewTextBoxColumn.DataPropertyName = "WallsHeight";
-            this.wallsHeightDataGridViewTextBoxColumn.HeaderText = "Высота";
-            this.wallsHeightDataGridViewTextBoxColumn.Name = "wallsHeightDataGridViewTextBoxColumn";
-            this.wallsHeightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wallsHeightDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // numberOfWallsDataGridViewTextBoxColumn
-            // 
-            this.numberOfWallsDataGridViewTextBoxColumn.DataPropertyName = "NumberOfWalls";
-            this.numberOfWallsDataGridViewTextBoxColumn.HeaderText = "Кол-во";
-            this.numberOfWallsDataGridViewTextBoxColumn.Name = "numberOfWallsDataGridViewTextBoxColumn";
-            this.numberOfWallsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberOfWallsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // wallSizeBindingSource
-            // 
-            this.wallSizeBindingSource.DataSource = typeof(BrickWorks.WallSize);
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.addressDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // deliveryDistanseDataGridViewTextBoxColumn
-            // 
-            this.deliveryDistanseDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDistanse";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.deliveryDistanseDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.deliveryDistanseDataGridViewTextBoxColumn.HeaderText = "Расстояние";
-            this.deliveryDistanseDataGridViewTextBoxColumn.Name = "deliveryDistanseDataGridViewTextBoxColumn";
-            this.deliveryDistanseDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deliveryDistanseDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // buildingBindingSource
-            // 
-            this.buildingBindingSource.DataSource = typeof(BrickWorks.Building);
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(BrickWorks.Client);
-            // 
             // ClientAddEditForm
             // 
             this.AcceptButton = this.mbtnSave;
@@ -497,13 +499,13 @@
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Информация о клиенте";
             this.Load += new System.EventHandler(this.ClientAddEditForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildingsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallSizeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWallAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuildingAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wallSizeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

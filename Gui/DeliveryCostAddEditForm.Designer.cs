@@ -43,7 +43,7 @@
             this.mbtSave.Location = new System.Drawing.Point(235, 154);
             this.mbtSave.Name = "mbtSave";
             this.mbtSave.Size = new System.Drawing.Size(75, 23);
-            this.mbtSave.TabIndex = 0;
+            this.mbtSave.TabIndex = 2;
             this.mbtSave.Text = "Сохранить";
             this.mbtSave.UseSelectable = true;
             this.mbtSave.Click += new System.EventHandler(this.mbtSave_Click);
@@ -110,7 +110,7 @@
             this.mdtDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.mdtDate.Name = "mdtDate";
             this.mdtDate.Size = new System.Drawing.Size(115, 29);
-            this.mdtDate.TabIndex = 3;
+            this.mdtDate.TabIndex = 0;
             this.mdtDate.Value = new System.DateTime(2018, 1, 15, 10, 50, 34, 0);
             this.mdtDate.ValueChanged += new System.EventHandler(this.mdtDate_ValueChanged);
             // 

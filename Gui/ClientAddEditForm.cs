@@ -86,6 +86,8 @@ namespace BrickWorks
                 case 3:
                     using (var frm = new WallAddEditForm(ws_edit))
                     {
+                        frm.Theme = this.Theme;
+                        frm.Style = this.Style;
                         if(frm.ShowDialog() == DialogResult.OK)
                         {
                             ws.WallsHeight = ws_edit.WallsHeight;
@@ -110,6 +112,8 @@ namespace BrickWorks
         {
             using (var frm = new WallAddEditForm(new WallSize()))
             {
+                frm.Theme = this.Theme;
+                frm.Style = this.Style;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Building bld = (Building)buildingBindingSource.Current;
@@ -133,8 +137,12 @@ namespace BrickWorks
                 case 2:
                     using (var frm = new BuildingAddEditForm(bld_edit))
                     {
+                        frm.Style = this.Style;
+                        frm.Theme = this.Theme;
                         if (frm.ShowDialog() == DialogResult.OK)
                         {
+                            frm.Theme = this.Theme;
+                            frm.Style = this.Style;
                             bld.Address = bld_edit.Address;
                             bld.DeliveryDistanse = bld_edit.DeliveryDistanse;
                             buildingsGrid.Refresh();
@@ -157,6 +165,8 @@ namespace BrickWorks
         {
             using (var frm = new BuildingAddEditForm(new Building()))
             {
+                frm.Theme = this.Theme;
+                frm.Style = this.Style;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     var client = (Client)clientBindingSource.Current;
@@ -177,5 +187,16 @@ namespace BrickWorks
 
         }
 
+        private void buildingsGrid_DoubleClick(object sender, EventArgs e)
+        {
+            buildingsGrid_CellContentClick(this, new DataGridViewCellEventArgs( 2,
+                buildingsGrid.SelectedRows[0].Index));
+        }
+
+        private void wallsGrid_DoubleClick(object sender, EventArgs e)
+        {
+            wallsGrid_CellContentClick(this, new DataGridViewCellEventArgs( 3,
+                wallsGrid.SelectedRows[0].Index));
+        }
     }
 }

@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrickWorksModel\BricksInOrderView.cs" />
     <Compile Include="BrickWorksModel\DbInitializer.cs" />
     <Compile Include="Gui\AboutForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="Gui\BricksFrom.Designer.cs">
       <DependentUpon>BricksFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\BricksInOrderAddEditFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BricksInOrderAddEditFrom.Designer.cs">
+      <DependentUpon>BricksInOrderAddEditFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\BricksTypesAddEditFrom.cs">
       <SubType>Form</SubType>
@@ -175,6 +182,9 @@
     <EmbeddedResource Include="Gui\BricksFrom.resx">
       <DependentUpon>BricksFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BricksInOrderAddEditFrom.resx">
+      <DependentUpon>BricksInOrderAddEditFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\BricksTypesAddEditFrom.resx">
       <DependentUpon>BricksTypesAddEditFrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,11 +225,13 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Brick.datasource" />
+    <None Include="Properties\DataSources\BricksInOrderView.datasource" />
     <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\DeliveryCost.datasource" />
     <None Include="Properties\DataSources\ManufacturedBrick.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
+    <None Include="Properties\DataSources\OrderedBrick.datasource" />
     <None Include="Properties\DataSources\OrdersSummary.datasource" />
     <None Include="Properties\DataSources\WallSize.datasource" />
     <None Include="Properties\Settings.settings">

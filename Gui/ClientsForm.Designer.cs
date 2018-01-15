@@ -140,6 +140,7 @@
             this.clientsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clientsGrid.Size = new System.Drawing.Size(369, 224);
             this.clientsGrid.TabIndex = 8;
+            this.clientsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsGrid_CellContentClick);
             this.clientsGrid.DoubleClick += new System.EventHandler(this.lnkEdit_Click);
             // 
             // idDataGridViewTextBoxColumn
