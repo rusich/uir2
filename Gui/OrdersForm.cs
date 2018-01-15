@@ -71,7 +71,9 @@ namespace BrickWorks
                     }
                     catch (Exception ex)
                     {
-                        MetroFramework.MetroMessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroFramework.MetroMessageBox.Show(this, ex.InnerException.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        db.Orders.Load();
+                        LoadOrders();
                     }
                 }
 
@@ -142,10 +144,7 @@ namespace BrickWorks
             }
         }
 
-        private void mtBricks_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void mtClients_Click(object sender, EventArgs e)
         {
@@ -173,6 +172,16 @@ namespace BrickWorks
             }
             lnkDelete.Enabled = false;
             lnkEdit.Enabled = false;
+        }
+
+        private void mtDelivery_Click(object sender, EventArgs e)
+        {
+            using (DeliveryForm frm = new DeliveryForm())
+            {
+                frm.Theme = mtDelivery.Theme;
+                frm.Style = mtDelivery.Style;
+                frm.ShowDialog();
+            }
         }
     }
 }

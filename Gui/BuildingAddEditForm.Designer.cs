@@ -148,6 +148,7 @@
             this.MinimizeBox = false;
             this.Name = "BuildingAddEditForm";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Строение";
             ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).EndInit();
             this.ResumeLayout(false);

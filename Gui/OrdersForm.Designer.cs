@@ -94,7 +94,7 @@
             this.mtDelivery.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtDelivery.UseSelectable = true;
             this.mtDelivery.UseTileImage = true;
-            this.mtDelivery.Click += new System.EventHandler(this.mtBricks_Click);
+            this.mtDelivery.Click += new System.EventHandler(this.mtDelivery_Click);
             // 
             // mtBricks
             // 
@@ -113,7 +113,6 @@
             this.mtBricks.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mtBricks.UseSelectable = true;
             this.mtBricks.UseTileImage = true;
-            this.mtBricks.Click += new System.EventHandler(this.mtBricks_Click);
             // 
             // mtAbout
             // 
@@ -291,8 +290,7 @@
             this.Controls.Add(this.lnkAdd);
             this.Name = "OrdersForm";
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Text = "ЗАКАЗЫ                                                     АРМ Менеджер кирпичног" +
-    "о завода";
+            this.Text = "ЗАКАЗЫ                                 АРМ Менеджер кирпичного завода";
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.styleManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();

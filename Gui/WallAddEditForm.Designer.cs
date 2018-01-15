@@ -191,6 +191,7 @@
             this.MinimizeBox = false;
             this.Name = "WallAddEditForm";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Стена";
             ((System.ComponentModel.ISupportInitialize)(this.wallSizeBindingSource)).EndInit();
             this.ResumeLayout(false);

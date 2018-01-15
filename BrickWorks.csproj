@@ -83,6 +83,12 @@
     <Compile Include="BrickWorksModel\BrickWorksModel.cs" />
     <Compile Include="BrickWorksModel\Building.cs" />
     <Compile Include="BrickWorksModel\Client.cs" />
+    <Compile Include="Gui\BricksFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BricksFrom.Designer.cs">
+      <DependentUpon>BricksFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\BuildingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,18 @@
     <Compile Include="BrickWorksModel\DeliveryCost.cs" />
     <Compile Include="BrickWorksModel\ManufacturedBrick.cs" />
     <Compile Include="BrickWorksModel\Order.cs" />
+    <Compile Include="Gui\DeliveryCostAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\DeliveryCostAddEditForm.Designer.cs">
+      <DependentUpon>DeliveryCostAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\DeliveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\DeliveryForm.Designer.cs">
+      <DependentUpon>DeliveryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\OrderAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +154,9 @@
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BricksFrom.resx">
+      <DependentUpon>BricksFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\BuildingAddEditForm.resx">
       <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\DeliveryCostAddEditForm.resx">
+      <DependentUpon>DeliveryCostAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\DeliveryForm.resx">
+      <DependentUpon>DeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\OrderAddEditForm.resx">
       <DependentUpon>OrderAddEditForm.cs</DependentUpon>
@@ -162,6 +189,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
+    <None Include="Properties\DataSources\DeliveryCost.datasource" />
+    <None Include="Properties\DataSources\ManufacturedBrick.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\OrdersSummary.datasource" />
     <None Include="Properties\DataSources\WallSize.datasource" />

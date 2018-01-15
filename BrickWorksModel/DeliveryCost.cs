@@ -10,6 +10,7 @@ namespace BrickWorks
     public partial class DeliveryCost
     {
         [Key]
+        public int Id { get; set; }
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
         [Required]

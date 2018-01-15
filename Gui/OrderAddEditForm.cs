@@ -32,6 +32,12 @@ namespace BrickWorks
 
         private void mbtnSave_Click(object sender, EventArgs e)
         {
+            if(mcbClient.SelectedIndex<0)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Клиент не выбран",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             orderBindingSource.EndEdit();
             DialogResult = DialogResult.OK;
             this.Close();
