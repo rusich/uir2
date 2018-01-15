@@ -89,6 +89,18 @@
     <Compile Include="Gui\BricksFrom.Designer.cs">
       <DependentUpon>BricksFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\BricksTypesAddEditFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BricksTypesAddEditFrom.Designer.cs">
+      <DependentUpon>BricksTypesAddEditFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\BricksTypesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BricksTypesForm.Designer.cs">
+      <DependentUpon>BricksTypesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\BuildingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\BricksFrom.resx">
       <DependentUpon>BricksFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BricksTypesAddEditFrom.resx">
+      <DependentUpon>BricksTypesAddEditFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BricksTypesForm.resx">
+      <DependentUpon>BricksTypesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\BuildingAddEditForm.resx">
       <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
@@ -239,6 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bricks32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\price.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

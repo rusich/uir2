@@ -56,6 +56,7 @@
             this.lnkEdit = new MetroFramework.Controls.MetroLink();
             this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.lnkBricks = new MetroFramework.Controls.MetroLink();
+            this.mlCost = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.gridBricks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturedBrickBindingSource)).BeginInit();
@@ -330,7 +331,7 @@
             this.lnkBricks.Image = global::BrickWorks.Properties.Resources.bricks32;
             this.lnkBricks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkBricks.ImageSize = 32;
-            this.lnkBricks.Location = new System.Drawing.Point(435, 59);
+            this.lnkBricks.Location = new System.Drawing.Point(337, 59);
             this.lnkBricks.Margin = new System.Windows.Forms.Padding(0);
             this.lnkBricks.Name = "lnkBricks";
             this.lnkBricks.Size = new System.Drawing.Size(138, 36);
@@ -340,11 +341,26 @@
             this.lnkBricks.UseSelectable = true;
             this.lnkBricks.Click += new System.EventHandler(this.lnkBricks_Click);
             // 
+            // mlCost
+            // 
+            this.mlCost.Image = global::BrickWorks.Properties.Resources.price;
+            this.mlCost.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mlCost.ImageSize = 32;
+            this.mlCost.Location = new System.Drawing.Point(475, 60);
+            this.mlCost.Margin = new System.Windows.Forms.Padding(0);
+            this.mlCost.Name = "mlCost";
+            this.mlCost.Size = new System.Drawing.Size(73, 36);
+            this.mlCost.TabIndex = 14;
+            this.mlCost.Text = "Цены";
+            this.mlCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.mlCost.UseSelectable = true;
+            // 
             // BricksFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 438);
+            this.Controls.Add(this.mlCost);
             this.Controls.Add(this.lnkBricks);
             this.Controls.Add(this.lnkDelete);
             this.Controls.Add(this.lnkEdit);
@@ -400,5 +416,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn brickIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroLink mlCost;
     }
 }

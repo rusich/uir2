@@ -181,6 +181,7 @@ namespace BrickWorks
                 frm.Theme = mtDelivery.Theme;
                 frm.Style = mtDelivery.Style;
                 frm.ShowDialog();
+                LoadOrders();
             }
         }
 
@@ -191,6 +192,7 @@ namespace BrickWorks
                 frm.Theme = mtBricks.Theme;
                 frm.Style = mtBricks.Style;
                 frm.ShowDialog();
+                LoadOrders();
             }
         }
     }

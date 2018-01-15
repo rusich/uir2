@@ -83,12 +83,23 @@ namespace BrickWorks
                 }
 
                 db.SaveChanges();
+                gridBricks.Refresh();
             }
         }
 
         private void lnkBricks_Click(object sender, EventArgs e)
         {
+            using (var frm = new BricksTypesForm())
+            {
+                frm.Theme = this.Theme;
+                frm.Style = this.Style;
 
+                frm.ShowDialog();
+
+                manufacturedBrickBindingSource.DataSource = db.ManufacturedBricks.OrderByDescending(d => d.Id).ToList();
+                brickBindingSource.DataSource = db.Bricks.ToList();
+                gridBricks.Refresh();
+            }
         }
     }
 }
