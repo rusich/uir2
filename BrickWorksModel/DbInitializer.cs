@@ -8,8 +8,8 @@ using System.Data.Entity;
 
 namespace BrickWorks
 {
-    //class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
-    class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
+    class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
+    //class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
     {
         private static void InitBricksAndCosts(BrickWorksModel db)
         {
@@ -97,8 +97,8 @@ namespace BrickWorks
         {
             var buildings = new List<Building>
             {
-                new Building {ClientID = 1, Address = "Красноармейская 205"},
-                new Building {ClientID = 2, Address = "Кирова 15"}
+                new Building {ClientID = 1, Address = "Красноармейская 205", DeliveryDistanse = 10},
+                new Building {ClientID = 2, Address = "Кирова 15", DeliveryDistanse = 15}
             };
             db.Buildings.AddRange(buildings);
         }

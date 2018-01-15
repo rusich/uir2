@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 372);
+            this.ClientSize = new System.Drawing.Size(426, 358);
             this.Controls.Add(this.clientsGrid);
             this.Controls.Add(this.lnkDelete);
             this.Controls.Add(this.lnkEdit);

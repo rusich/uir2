@@ -83,6 +83,12 @@
     <Compile Include="BrickWorksModel\BrickWorksModel.cs" />
     <Compile Include="BrickWorksModel\Building.cs" />
     <Compile Include="BrickWorksModel\Client.cs" />
+    <Compile Include="Gui\BuildingAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BuildingAddEditForm.Designer.cs">
+      <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\ClientAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     <Compile Include="Gui\OrdersForm.Designer.cs">
       <DependentUpon>OrdersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\WallAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WallAddEditForm.Designer.cs">
+      <DependentUpon>WallAddEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BrickWorksModel\OrdersSummary.cs" />
@@ -124,6 +136,9 @@
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BuildingAddEditForm.resx">
+      <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\ClientAddEditForm.resx">
       <DependentUpon>ClientAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +151,9 @@
     <EmbeddedResource Include="Gui\OrdersForm.resx">
       <DependentUpon>OrdersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WallAddEditForm.resx">
+      <DependentUpon>WallAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -146,6 +164,7 @@
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\OrdersSummary.datasource" />
+    <None Include="Properties\DataSources\WallSize.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,7 +181,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\edit_small.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delivery.png" />
     <None Include="Resources\clients.png" />
@@ -170,6 +191,12 @@
     <None Include="Resources\about.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

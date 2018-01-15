@@ -37,33 +37,9 @@ namespace BrickWorks
 
         private void ClientsForm_Load(object sender, EventArgs e)
         {
-            if (true)
-            {
                 clientsGrid.Theme = this.Theme;
                 clientsGrid.Style = this.Style;
-                Client c = new Client
-                {
-                    Name = "John Smith",
-                    Phone = "123456778"
-                };
-                Building b = new Building
-                {
-                    Address = "Jirkov st. 9",
-                    DeliveryDistanse = 10
-
-                };
-                WallSize w = new WallSize
-                {
-                    NumberOfWalls = 4,
-                    WallsHeight = 3,
-                    WallsLength = 5
-                };
-                db.Clients.Add(c);
-                c.Buildings.Add(b);
-                b.WallSizes.Add(w);
-                db.SaveChanges();
                 LoadClients();
-            }
         }
 
         private void lnkAdd_Click(object sender, EventArgs e)
@@ -105,7 +81,6 @@ namespace BrickWorks
                         try
                         {
                             await db.SaveChangesAsync();
-                            db = new BrickWorksModel();
                             LoadClients();
                         }
                         catch (Exception ex)

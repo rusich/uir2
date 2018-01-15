@@ -22,7 +22,7 @@ namespace BrickWorks
         [StringLength(100)]
         public string Address { get; set; }
 
-        public float? DeliveryDistanse { get; set; }
+        public float DeliveryDistanse { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WallSize> WallSizes { get; set; }

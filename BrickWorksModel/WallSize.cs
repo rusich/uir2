@@ -10,16 +10,12 @@ namespace BrickWorks
     public partial class WallSize
     {
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
+
         public int BuildingId { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         public float WallsLength { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
         public float WallsHeight { get; set; }
 
         public int NumberOfWalls { get; set; }
