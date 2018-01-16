@@ -287,7 +287,7 @@
             this.lnkDelete.Image = global::BrickWorks.Properties.Resources.delete;
             this.lnkDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkDelete.ImageSize = 32;
-            this.lnkDelete.Location = new System.Drawing.Point(256, 59);
+            this.lnkDelete.Location = new System.Drawing.Point(257, 59);
             this.lnkDelete.Margin = new System.Windows.Forms.Padding(0);
             this.lnkDelete.Name = "lnkDelete";
             this.lnkDelete.Size = new System.Drawing.Size(81, 36);
@@ -302,7 +302,7 @@
             this.lnkEdit.Image = global::BrickWorks.Properties.Resources.edit;
             this.lnkEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkEdit.ImageSize = 32;
-            this.lnkEdit.Location = new System.Drawing.Point(123, 59);
+            this.lnkEdit.Location = new System.Drawing.Point(135, 59);
             this.lnkEdit.Margin = new System.Windows.Forms.Padding(0);
             this.lnkEdit.Name = "lnkEdit";
             this.lnkEdit.Size = new System.Drawing.Size(122, 36);
@@ -320,9 +320,9 @@
             this.lnkAdd.Location = new System.Drawing.Point(23, 59);
             this.lnkAdd.Margin = new System.Windows.Forms.Padding(0);
             this.lnkAdd.Name = "lnkAdd";
-            this.lnkAdd.Size = new System.Drawing.Size(81, 36);
+            this.lnkAdd.Size = new System.Drawing.Size(110, 36);
             this.lnkAdd.TabIndex = 0;
-            this.lnkAdd.Text = "Новый";
+            this.lnkAdd.Text = "Изготовить";
             this.lnkAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lnkAdd.UseSelectable = true;
             this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);

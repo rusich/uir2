@@ -78,7 +78,7 @@ namespace BrickWorks
         private void wallsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var ws = (WallSize)wallsGrid.SelectedRows[0].DataBoundItem;
-            var ws_edit = new WallSize { WallsHeight = ws.WallsHeight, WallsLength = ws.WallsLength, NumberOfWalls = ws.NumberOfWalls };
+            var ws_edit = new WallSize { Height = ws.Height, Length = ws.Length, NumberOfWalls = ws.NumberOfWalls };
 
             switch (e.ColumnIndex)
             {
@@ -90,8 +90,8 @@ namespace BrickWorks
                         frm.Style = this.Style;
                         if(frm.ShowDialog() == DialogResult.OK)
                         {
-                            ws.WallsHeight = ws_edit.WallsHeight;
-                            ws.WallsLength = ws_edit.WallsLength;
+                            ws.Height = ws_edit.Height;
+                            ws.Length = ws_edit.Length;
                             ws.NumberOfWalls = ws_edit.NumberOfWalls;
                             wallsGrid.Refresh();
                         }

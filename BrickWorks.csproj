@@ -114,6 +114,12 @@
     <Compile Include="Gui\BuildingAddEditForm.Designer.cs">
       <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\CalcBricksFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\CalcBricksFrom.Designer.cs">
+      <DependentUpon>CalcBricksFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\ClientAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\BuildingAddEditForm.resx">
       <DependentUpon>BuildingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\CalcBricksFrom.resx">
+      <DependentUpon>CalcBricksFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\ClientAddEditForm.resx">
       <DependentUpon>ClientAddEditForm.cs</DependentUpon>

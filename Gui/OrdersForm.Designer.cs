@@ -43,11 +43,11 @@
             this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersGrid = new MetroFramework.Controls.MetroGrid();
+            this.ordersSummaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordersSummaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.styleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGrid)).BeginInit();
@@ -237,6 +237,11 @@
             this.ordersGrid.SelectionChanged += new System.EventHandler(this.ordersGrid_SelectionChanged);
             this.ordersGrid.DoubleClick += new System.EventHandler(this.ordersGrid_DoubleClick_1);
             // 
+            // ordersSummaryBindingSource
+            // 
+            this.ordersSummaryBindingSource.AllowNew = false;
+            this.ordersSummaryBindingSource.DataSource = typeof(BrickWorks.OrdersSummary);
+            // 
             // orderIdDataGridViewTextBoxColumn
             // 
             this.orderIdDataGridViewTextBoxColumn.DataPropertyName = "OrderId";
@@ -265,17 +270,12 @@
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.Format = "C2";
             dataGridViewCellStyle2.NullValue = "0.00";
             this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.amountDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ordersSummaryBindingSource
-            // 
-            this.ordersSummaryBindingSource.AllowNew = false;
-            this.ordersSummaryBindingSource.DataSource = typeof(BrickWorks.OrdersSummary);
             // 
             // OrdersForm
             // 

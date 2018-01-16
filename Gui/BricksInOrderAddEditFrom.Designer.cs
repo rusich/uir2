@@ -37,7 +37,8 @@
             this.mtbQuantity = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.mlRemainingBricks = new MetroFramework.Controls.MetroLabel();
+            this.mbCalc = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.orderedBrickBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,7 @@
             this.mcbBrick.TabIndex = 0;
             this.mcbBrick.UseSelectable = true;
             this.mcbBrick.ValueMember = "Id";
+            this.mcbBrick.SelectedIndexChanged += new System.EventHandler(this.mcbBrick_SelectedIndexChanged);
             // 
             // orderedBrickBindingSource
             // 
@@ -75,7 +77,7 @@
             // 
             // mbSave
             // 
-            this.mbSave.Location = new System.Drawing.Point(354, 165);
+            this.mbSave.Location = new System.Drawing.Point(406, 212);
             this.mbSave.Name = "mbSave";
             this.mbSave.Size = new System.Drawing.Size(75, 23);
             this.mbSave.TabIndex = 2;
@@ -132,26 +134,37 @@
             this.metroLabel3.TabIndex = 0;
             this.metroLabel3.Text = "Остаток на складе:";
             // 
-            // metroLabel4
+            // mlRemainingBricks
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.Location = new System.Drawing.Point(146, 110);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(33, 19);
-            this.metroLabel4.TabIndex = 0;
-            this.metroLabel4.Text = "123";
+            this.mlRemainingBricks.AutoSize = true;
+            this.mlRemainingBricks.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.mlRemainingBricks.Location = new System.Drawing.Point(146, 110);
+            this.mlRemainingBricks.Name = "mlRemainingBricks";
+            this.mlRemainingBricks.Size = new System.Drawing.Size(33, 19);
+            this.mlRemainingBricks.TabIndex = 0;
+            this.mlRemainingBricks.Text = "123";
+            // 
+            // mbCalc
+            // 
+            this.mbCalc.Location = new System.Drawing.Point(252, 144);
+            this.mbCalc.Name = "mbCalc";
+            this.mbCalc.Size = new System.Drawing.Size(75, 23);
+            this.mbCalc.TabIndex = 3;
+            this.mbCalc.Text = "Расчитать";
+            this.mbCalc.UseSelectable = true;
+            this.mbCalc.Click += new System.EventHandler(this.mbCalc_Click);
             // 
             // BricksInOrderAddEditFrom
             // 
             this.AcceptButton = this.mbSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 214);
+            this.ClientSize = new System.Drawing.Size(489, 258);
+            this.Controls.Add(this.mbCalc);
             this.Controls.Add(this.mtbQuantity);
             this.Controls.Add(this.mbSave);
             this.Controls.Add(this.mcbBrick);
-            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.mlRemainingBricks);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
@@ -171,13 +184,14 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroComboBox mcbBrick;
         private MetroFramework.Controls.MetroButton mbSave;
         private MetroFramework.Controls.MetroTextBox mtbQuantity;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel mlRemainingBricks;
         private System.Windows.Forms.BindingSource orderedBrickBindingSource;
         private System.Windows.Forms.BindingSource brickBindingSource;
+        private MetroFramework.Controls.MetroButton mbCalc;
+        public MetroFramework.Controls.MetroComboBox mcbBrick;
     }
 }

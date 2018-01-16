@@ -107,9 +107,9 @@ namespace BrickWorks
         {
             var ws = new List<WallSize>
             {
-                new WallSize {BuildingId=1, WallsHeight=3, WallsLength=6, NumberOfWalls = 4},
-                new WallSize {BuildingId=2, WallsHeight=3, WallsLength=7, NumberOfWalls = 2},
-                new WallSize {BuildingId=2, WallsHeight=3, WallsLength=8, NumberOfWalls = 2}
+                new WallSize {BuildingId=1, Height=3, Length=6, NumberOfWalls = 4},
+                new WallSize {BuildingId=2, Height=3, Length=7, NumberOfWalls = 2},
+                new WallSize {BuildingId=2, Height=3, Length=8, NumberOfWalls = 2}
             };
             db.WallSizes.AddRange(ws);
             db.SaveChanges();

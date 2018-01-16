@@ -87,7 +87,11 @@ namespace BrickWorks
                         {
                             frm.Theme = this.Theme;
                             frm.Style = this.Style;
-                            if (frm.ShowDialog() == DialogResult.OK)
+                            if (mcbClient.SelectedIndex < 0)
+                                frm.ClientId = 0;
+                            else
+                                frm.ClientId = (clientBindingSource.Current as Client).Id;
+                            if (frm.ShowDialog(this) == DialogResult.OK)
                             {
                                 if (oBricks != null)
                                 {
@@ -128,10 +132,15 @@ namespace BrickWorks
 
         private void pbBricksAdd_Click(object sender, EventArgs e)
         {
-            using (var frm = new BricksInOrderAddEditFrom(new OrderedBrick()))
+            using (var frm = new BricksInOrderAddEditFrom(new OrderedBrick())) 
             {
                 frm.Theme = this.Theme;
                 frm.Style = this.Style;
+                if (mcbClient.SelectedIndex < 0)
+                    frm.ClientId = 0;
+                else
+                    frm.ClientId = (clientBindingSource.Current as Client).Id;
+
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
                     if (OrderInfo.Id > 0)

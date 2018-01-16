@@ -54,7 +54,7 @@
             this.mtbLenght.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mtbLenght.CustomButton.UseSelectable = true;
             this.mtbLenght.CustomButton.Visible = false;
-            this.mtbLenght.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wallSizeBindingSource, "WallsLength", true));
+            this.mtbLenght.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wallSizeBindingSource, "Length", true));
             this.mtbLenght.Lines = new string[0];
             this.mtbLenght.Location = new System.Drawing.Point(104, 58);
             this.mtbLenght.MaxLength = 32767;
@@ -108,7 +108,7 @@
             this.mtbHeight.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mtbHeight.CustomButton.UseSelectable = true;
             this.mtbHeight.CustomButton.Visible = false;
-            this.mtbHeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wallSizeBindingSource, "WallsHeight", true));
+            this.mtbHeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wallSizeBindingSource, "Height", true));
             this.mtbHeight.Lines = new string[0];
             this.mtbHeight.Location = new System.Drawing.Point(104, 91);
             this.mtbHeight.MaxLength = 32767;

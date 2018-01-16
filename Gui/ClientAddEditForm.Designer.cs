@@ -385,7 +385,7 @@
             // 
             // wallsLengthDataGridViewTextBoxColumn
             // 
-            this.wallsLengthDataGridViewTextBoxColumn.DataPropertyName = "WallsLength";
+            this.wallsLengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
             this.wallsLengthDataGridViewTextBoxColumn.HeaderText = "Длина";
             this.wallsLengthDataGridViewTextBoxColumn.Name = "wallsLengthDataGridViewTextBoxColumn";
             this.wallsLengthDataGridViewTextBoxColumn.ReadOnly = true;
@@ -393,7 +393,7 @@
             // 
             // wallsHeightDataGridViewTextBoxColumn
             // 
-            this.wallsHeightDataGridViewTextBoxColumn.DataPropertyName = "WallsHeight";
+            this.wallsHeightDataGridViewTextBoxColumn.DataPropertyName = "Height";
             this.wallsHeightDataGridViewTextBoxColumn.HeaderText = "Высота";
             this.wallsHeightDataGridViewTextBoxColumn.Name = "wallsHeightDataGridViewTextBoxColumn";
             this.wallsHeightDataGridViewTextBoxColumn.ReadOnly = true;

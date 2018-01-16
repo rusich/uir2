@@ -395,7 +395,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox mteOrderId;
         private MetroFramework.Controls.MetroDateTime mteOrderDate;
-        private MetroFramework.Controls.MetroComboBox mcbClient;
         private MetroFramework.Controls.MetroButton mbtnSave;
         private System.Windows.Forms.BindingSource orderBindingSource;
         private System.Windows.Forms.BindingSource clientBindingSource;
@@ -412,5 +411,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
         private System.Windows.Forms.DataGridViewImageColumn colDel;
+        public MetroFramework.Controls.MetroComboBox mcbClient;
     }
 }
