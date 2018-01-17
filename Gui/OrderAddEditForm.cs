@@ -177,5 +177,22 @@ namespace BrickWorks
             bricksGrid_CellContentClick(this, new DataGridViewCellEventArgs( 4,
                 bricksGrid.SelectedRows[0].Index));
         }
+
+        private void mbtnCalcDelivery_Click(object sender, EventArgs e)
+        {
+
+            var frm = new DeliveryCostCalc(OrderInfo.ClientId, mteOrderDate.Value)  
+            {
+                Style = this.Style,
+                Theme = this.Theme
+            };
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+
+                mteDelivery.Text = Convert.ToString(frm.DeliveryCost);
+
+            }
+        }
     }
 }

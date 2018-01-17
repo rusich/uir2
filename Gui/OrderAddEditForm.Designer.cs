@@ -56,6 +56,7 @@
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.colDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.bricksInOrderViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mbCalcDelivery = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBricksAdd)).BeginInit();
@@ -159,7 +160,7 @@
             // 
             // mbtnSave
             // 
-            this.mbtnSave.Location = new System.Drawing.Point(532, 328);
+            this.mbtnSave.Location = new System.Drawing.Point(532, 326);
             this.mbtnSave.Name = "mbtnSave";
             this.mbtnSave.Size = new System.Drawing.Size(75, 23);
             this.mbtnSave.TabIndex = 5;
@@ -170,7 +171,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(66, 332);
+            this.metroLabel4.Location = new System.Drawing.Point(49, 328);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(67, 19);
             this.metroLabel4.TabIndex = 7;
@@ -192,7 +193,7 @@
             this.mteDelivery.CustomButton.Visible = false;
             this.mteDelivery.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "DeliveryCost", true));
             this.mteDelivery.Lines = new string[0];
-            this.mteDelivery.Location = new System.Drawing.Point(169, 331);
+            this.mteDelivery.Location = new System.Drawing.Point(122, 326);
             this.mteDelivery.MaxLength = 32767;
             this.mteDelivery.Name = "mteDelivery";
             this.mteDelivery.PasswordChar = '\0';
@@ -281,7 +282,7 @@
             this.bricksGrid.RowHeadersVisible = false;
             this.bricksGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.bricksGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bricksGrid.Size = new System.Drawing.Size(583, 177);
+            this.bricksGrid.Size = new System.Drawing.Size(583, 192);
             this.bricksGrid.TabIndex = 11;
             this.bricksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bricksGrid_CellContentClick);
             this.bricksGrid.DoubleClick += new System.EventHandler(this.bricksGrid_DoubleClick);
@@ -352,6 +353,16 @@
             // 
             this.bricksInOrderViewBindingSource.DataSource = typeof(BrickWorks.BricksInOrderView);
             // 
+            // mbCalcDelivery
+            // 
+            this.mbCalcDelivery.Location = new System.Drawing.Point(250, 326);
+            this.mbCalcDelivery.Name = "mbCalcDelivery";
+            this.mbCalcDelivery.Size = new System.Drawing.Size(75, 23);
+            this.mbCalcDelivery.TabIndex = 5;
+            this.mbCalcDelivery.Text = "Расчитать";
+            this.mbCalcDelivery.UseSelectable = true;
+            this.mbCalcDelivery.Click += new System.EventHandler(this.mbtnCalcDelivery_Click);
+            // 
             // OrderAddEditForm
             // 
             this.AcceptButton = this.mbtnSave;
@@ -363,6 +374,7 @@
             this.Controls.Add(this.bricksGrid);
             this.Controls.Add(this.mteDelivery);
             this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.mbCalcDelivery);
             this.Controls.Add(this.mbtnSave);
             this.Controls.Add(this.mcbClient);
             this.Controls.Add(this.mteOrderDate);
@@ -412,5 +424,6 @@
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
         private System.Windows.Forms.DataGridViewImageColumn colDel;
         public MetroFramework.Controls.MetroComboBox mcbClient;
+        private MetroFramework.Controls.MetroButton mbCalcDelivery;
     }
 }

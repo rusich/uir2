@@ -153,6 +153,12 @@
     <Compile Include="Gui\DeliveryCostAddEditForm.Designer.cs">
       <DependentUpon>DeliveryCostAddEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\DeliveryCostCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\DeliveryCostCalc.Designer.cs">
+      <DependentUpon>DeliveryCostCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\DeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\DeliveryCostAddEditForm.resx">
       <DependentUpon>DeliveryCostAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\DeliveryCostCalc.resx">
+      <DependentUpon>DeliveryCostCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\DeliveryForm.resx">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
