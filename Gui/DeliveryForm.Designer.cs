@@ -1,6 +1,6 @@
 ﻿namespace BrickWorks
 {
-    partial class DeliveryForm
+    partial class BricksCostsForm
     {
         /// <summary>
         /// Required designer variable.

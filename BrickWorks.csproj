@@ -90,6 +90,12 @@
     <Compile Include="Gui\BrickCostAddEditForm.Designer.cs">
       <DependentUpon>BrickCostAddEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\BricksCostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BricksCostForm.Designer.cs">
+      <DependentUpon>BricksCostForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\BricksFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     <EmbeddedResource Include="Gui\BrickCostAddEditForm.resx">
       <DependentUpon>BrickCostAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BricksCostForm.resx">
+      <DependentUpon>BricksCostForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\BricksFrom.resx">
       <DependentUpon>BricksFrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Brick.datasource" />
+    <None Include="Properties\DataSources\BrickCost.datasource" />
     <None Include="Properties\DataSources\BricksInOrderView.datasource" />
     <None Include="Properties\DataSources\Building.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />

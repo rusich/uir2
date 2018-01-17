@@ -111,7 +111,13 @@ namespace BrickWorks
 
         private void mlCost_Click(object sender, EventArgs e)
         {
+            using (var frm = new BricksCostForm())
+            {
+                frm.Theme = this.Theme;
+                frm.Style = this.Style;
 
+                frm.ShowDialog();
+            }
         }
     }
 }

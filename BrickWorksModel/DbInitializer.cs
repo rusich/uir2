@@ -8,8 +8,8 @@ using System.Data.Entity;
 
 namespace BrickWorks
 {
-    //class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
-    class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
+    class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
+    //class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
     {
         private static void InitBricksAndCosts(BrickWorksModel db)
         {

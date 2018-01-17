@@ -10,30 +10,35 @@ using System.Windows.Forms;
 
 namespace BrickWorks
 {
-    public partial class BricksCostsForm : MetroFramework.Forms.MetroForm
+    public partial class BricksCostForm : MetroFramework.Forms.MetroForm 
     {
         BrickWorksModel db;
-        public BricksCostsForm()
+        public BricksCostForm()
         {
             InitializeComponent();
-            costGrid.Theme = this.Theme;
-            costGrid.Style = this.Style;
             db = new BrickWorksModel();
-            deliveryCostBindingSource.DataSource = db.DeliveryCosts.OrderByDescending(d => d.Date).ToList();
+            brickCostBindingSource.DataSource = db.BrickCosts.OrderByDescending(d => d.Date).ToList();
+            brickBindingSource.DataSource = db.Bricks.ToList();
+        }
+
+        private void BricksCostForm_Load(object sender, EventArgs e)
+        {
+            costGrid.Style = this.Style;
+            costGrid.Theme = this.Theme;
         }
 
         private void lnkAdd_Click(object sender, EventArgs e)
         {
-            var cost = new DeliveryCost();
-            using (var frm = new DeliveryCostAddEditForm(cost))
+            var cost = new BrickCost();
+            using (var frm = new BrickCostAddEditForm(cost))
             {
                 frm.Theme = this.Theme;
                 frm.Style = this.Style;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    db.DeliveryCosts.Add(cost);
+                    db.BrickCosts.Add(cost);
                     db.SaveChanges();
-                    deliveryCostBindingSource.DataSource = db.DeliveryCosts.OrderByDescending(d => d.Date).ToList();
+                    brickCostBindingSource.DataSource = db.BrickCosts.OrderByDescending(d => d.Date).ToList();
                     costGrid.Refresh();
                 }
             }
@@ -41,19 +46,19 @@ namespace BrickWorks
 
         private void lnkEdit_Click(object sender, EventArgs e)
         {
-            var cost = (DeliveryCost)deliveryCostBindingSource.Current;
-            //var bld_edit = (Building)db.Entry(bld).CurrentValues.ToObject();
-            var cost_edit = new DeliveryCost { Date = cost.Date, CostPerKm = cost.CostPerKm };
-            using (var frm = new DeliveryCostAddEditForm(cost_edit))
+            var cost = (BrickCost)brickCostBindingSource.Current;
+            var cost_edit = new BrickCost{ Id = cost.Id, BrickId = cost.BrickId, Date = cost.Date, Cost = cost.Cost};
+            using (var frm = new BrickCostAddEditForm(cost_edit))
             {
                 frm.Theme = this.Theme;
                 frm.Style = this.Style;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
+                    cost.BrickId = cost_edit.BrickId;
                     cost.Date = cost_edit.Date;
-                    cost.CostPerKm = cost_edit.CostPerKm;
+                    cost.Cost = cost_edit.Cost;
                     db.SaveChanges();
-                    deliveryCostBindingSource.DataSource = db.DeliveryCosts.OrderByDescending(d => d.Date).ToList();
+                    brickCostBindingSource.DataSource = db.BrickCosts.OrderByDescending(d => d.Date).ToList();
                     costGrid.Refresh();
                 }
             }
@@ -62,7 +67,7 @@ namespace BrickWorks
         private void lnkDelete_Click(object sender, EventArgs e)
         {
             if (MetroFramework.MetroMessageBox.Show(this, "Вы дейсвительно хотите удалить цену?",
-              "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+             "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int rows = costGrid.RowCount;
                 for (int i = rows - 1; i >= 0; i--)
@@ -70,9 +75,9 @@ namespace BrickWorks
                     if (costGrid.Rows[i].Selected)
                     {
                         DateTime dt = (DateTime)costGrid.Rows[i].Cells[0].Value;
-                        DeliveryCost dc = db.DeliveryCosts.FirstOrDefault(o => o.Date == dt);
-                        db.DeliveryCosts.Remove(dc);
-                        deliveryCostBindingSource.RemoveAt(costGrid.Rows[i].Index);
+                        BrickCost dc = db.BrickCosts.FirstOrDefault(o => o.Date == dt);
+                        db.BrickCosts.Remove(dc);
+                        brickCostBindingSource.RemoveAt(costGrid.Rows[i].Index);
                     }
                 }
 
@@ -80,15 +85,9 @@ namespace BrickWorks
             }
         }
 
-        private void DeliveryForm_Load(object sender, EventArgs e)
-        {
-            costGrid.Style = this.Style;
-            costGrid.Theme = this.Theme;
-        }
-
         private void costGrid_DoubleClick(object sender, EventArgs e)
         {
-            if(costGrid.Rows.Count>0)
+            if (costGrid.Rows.Count > 0)
             {
                 lnkEdit_Click(sender, e);
             }

@@ -179,7 +179,7 @@ namespace BrickWorks
 
         private void mtDelivery_Click(object sender, EventArgs e)
         {
-            using (DeliveryForm frm = new DeliveryForm())
+            using (BricksCostsForm frm = new BricksCostsForm())
             {
                 frm.Theme = mtDelivery.Theme;
                 frm.Style = mtDelivery.Style;
