@@ -8,8 +8,8 @@ using System.Data.Entity;
 
 namespace BrickWorks
 {
-    class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
-    //class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
+    //class MyInitializer : DropCreateDatabaseAlways<BrickWorksModel>
+    class MyInitializer : CreateDatabaseIfNotExists<BrickWorksModel>
     {
         private static void InitBricksAndCosts(BrickWorksModel db)
         {
@@ -73,10 +73,10 @@ namespace BrickWorks
         {
             var mfBricks = new List<ManufacturedBrick>
             {
-                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 1, Quantity = 1000 },
-                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 2, Quantity = 1000 },
-                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 3, Quantity = 1000 },
-                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 4, Quantity = 1000 }
+                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 1, Quantity = 10000 },
+                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 2, Quantity = 10000 },
+                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 3, Quantity = 10000 },
+                new ManufacturedBrick { Date = new DateTime(2017, 02, 01), BrickId = 4, Quantity = 10000 }
             };
             db.ManufacturedBricks.AddRange(mfBricks);
             db.SaveChanges();

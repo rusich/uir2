@@ -108,5 +108,10 @@ namespace BrickWorks
             if (gridBricks.Rows.Count > 0)
                 lnkEdit_Click(sender, e);
         }
+
+        private void mlCost_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

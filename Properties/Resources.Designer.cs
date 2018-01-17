@@ -93,6 +93,26 @@ namespace BrickWorks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bricks_white {
+            get {
+                object obj = ResourceManager.GetObject("bricks_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bricks1 {
+            get {
+                object obj = ResourceManager.GetObject("bricks1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bricks32 {
             get {
                 object obj = ResourceManager.GetObject("bricks32", resourceCulture);

@@ -329,7 +329,7 @@
             // 
             // lnkBricks
             // 
-            this.lnkBricks.Image = global::BrickWorks.Properties.Resources.bricks32;
+            this.lnkBricks.Image = global::BrickWorks.Properties.Resources.bricks1;
             this.lnkBricks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lnkBricks.ImageSize = 32;
             this.lnkBricks.Location = new System.Drawing.Point(337, 59);
@@ -355,6 +355,7 @@
             this.mlCost.Text = "Цены";
             this.mlCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mlCost.UseSelectable = true;
+            this.mlCost.Click += new System.EventHandler(this.mlCost_Click);
             // 
             // BricksFrom
             // 

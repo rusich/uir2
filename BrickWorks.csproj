@@ -84,6 +84,12 @@
     <Compile Include="BrickWorksModel\BrickWorksModel.cs" />
     <Compile Include="BrickWorksModel\Building.cs" />
     <Compile Include="BrickWorksModel\Client.cs" />
+    <Compile Include="Gui\BrickCostAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BrickCostAddEditForm.Designer.cs">
+      <DependentUpon>BrickCostAddEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\BricksFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BrickCostAddEditForm.resx">
+      <DependentUpon>BrickCostAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\BricksFrom.resx">
       <DependentUpon>BricksFrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
