@@ -33,16 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridBricks = new MetroFramework.Controls.MetroGrid();
+            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lnkDelete = new MetroFramework.Controls.MetroLink();
+            this.lnkEdit = new MetroFramework.Controls.MetroLink();
+            this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.markDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lenghtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.widthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parametersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lnkDelete = new MetroFramework.Controls.MetroLink();
-            this.lnkEdit = new MetroFramework.Controls.MetroLink();
-            this.lnkAdd = new MetroFramework.Controls.MetroLink();
+            this.RemainingBricks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridBricks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,8 @@
             this.lenghtDataGridViewTextBoxColumn,
             this.heightDataGridViewTextBoxColumn,
             this.widthDataGridViewTextBoxColumn,
-            this.parametersDataGridViewTextBoxColumn});
+            this.parametersDataGridViewTextBoxColumn,
+            this.RemainingBricks});
             this.gridBricks.DataSource = this.brickBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -103,54 +105,6 @@
             this.gridBricks.Size = new System.Drawing.Size(690, 279);
             this.gridBricks.TabIndex = 3;
             this.gridBricks.DoubleClick += new System.EventHandler(this.gridBricks_DoubleClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "№";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // markDataGridViewTextBoxColumn
-            // 
-            this.markDataGridViewTextBoxColumn.DataPropertyName = "Mark";
-            this.markDataGridViewTextBoxColumn.HeaderText = "Вид";
-            this.markDataGridViewTextBoxColumn.Name = "markDataGridViewTextBoxColumn";
-            this.markDataGridViewTextBoxColumn.ReadOnly = true;
-            this.markDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // lenghtDataGridViewTextBoxColumn
-            // 
-            this.lenghtDataGridViewTextBoxColumn.DataPropertyName = "Lenght";
-            this.lenghtDataGridViewTextBoxColumn.HeaderText = "Длина";
-            this.lenghtDataGridViewTextBoxColumn.Name = "lenghtDataGridViewTextBoxColumn";
-            this.lenghtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lenghtDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // heightDataGridViewTextBoxColumn
-            // 
-            this.heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
-            this.heightDataGridViewTextBoxColumn.HeaderText = "Высота";
-            this.heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
-            this.heightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.heightDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // widthDataGridViewTextBoxColumn
-            // 
-            this.widthDataGridViewTextBoxColumn.DataPropertyName = "Width";
-            this.widthDataGridViewTextBoxColumn.HeaderText = "Ширина";
-            this.widthDataGridViewTextBoxColumn.Name = "widthDataGridViewTextBoxColumn";
-            this.widthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.widthDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // parametersDataGridViewTextBoxColumn
-            // 
-            this.parametersDataGridViewTextBoxColumn.DataPropertyName = "Parameters";
-            this.parametersDataGridViewTextBoxColumn.HeaderText = "Характеристики";
-            this.parametersDataGridViewTextBoxColumn.Name = "parametersDataGridViewTextBoxColumn";
-            this.parametersDataGridViewTextBoxColumn.ReadOnly = true;
-            this.parametersDataGridViewTextBoxColumn.Width = 200;
             // 
             // brickBindingSource
             // 
@@ -201,6 +155,62 @@
             this.lnkAdd.UseSelectable = true;
             this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "№";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // markDataGridViewTextBoxColumn
+            // 
+            this.markDataGridViewTextBoxColumn.DataPropertyName = "Mark";
+            this.markDataGridViewTextBoxColumn.HeaderText = "Вид";
+            this.markDataGridViewTextBoxColumn.Name = "markDataGridViewTextBoxColumn";
+            this.markDataGridViewTextBoxColumn.ReadOnly = true;
+            this.markDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // lenghtDataGridViewTextBoxColumn
+            // 
+            this.lenghtDataGridViewTextBoxColumn.DataPropertyName = "Lenght";
+            this.lenghtDataGridViewTextBoxColumn.HeaderText = "Длина";
+            this.lenghtDataGridViewTextBoxColumn.Name = "lenghtDataGridViewTextBoxColumn";
+            this.lenghtDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lenghtDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // heightDataGridViewTextBoxColumn
+            // 
+            this.heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
+            this.heightDataGridViewTextBoxColumn.HeaderText = "Высота";
+            this.heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
+            this.heightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.heightDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // widthDataGridViewTextBoxColumn
+            // 
+            this.widthDataGridViewTextBoxColumn.DataPropertyName = "Width";
+            this.widthDataGridViewTextBoxColumn.HeaderText = "Ширина";
+            this.widthDataGridViewTextBoxColumn.Name = "widthDataGridViewTextBoxColumn";
+            this.widthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.widthDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // parametersDataGridViewTextBoxColumn
+            // 
+            this.parametersDataGridViewTextBoxColumn.DataPropertyName = "Parameters";
+            this.parametersDataGridViewTextBoxColumn.HeaderText = "Характеристики";
+            this.parametersDataGridViewTextBoxColumn.Name = "parametersDataGridViewTextBoxColumn";
+            this.parametersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.parametersDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // RemainingBricks
+            // 
+            this.RemainingBricks.DataPropertyName = "RemainingBricks";
+            this.RemainingBricks.HeaderText = "Остаток";
+            this.RemainingBricks.Name = "RemainingBricks";
+            this.RemainingBricks.ReadOnly = true;
+            this.RemainingBricks.Width = 50;
+            // 
             // BricksTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +245,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn widthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn parametersDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBricks;
     }
 }

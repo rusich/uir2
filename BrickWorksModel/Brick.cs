@@ -5,6 +5,7 @@ namespace BrickWorks
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("Bricks")]
     public partial class Brick
@@ -39,5 +40,18 @@ namespace BrickWorks
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderedBrick> OrderedBricks { get; set; }
+
+        public int RemainingBricks
+        {
+            get
+            {
+                BrickWorksModel db = new BrickWorksModel();
+                var mBricks = db.ManufacturedBricks.Where(b => b.BrickId == Id).ToList();
+                var oBricks = db.OrderedBricks.Where(b => b.BrickId == Id).ToList();
+                int remainingBricks = (mBricks.Sum(m => m.Quantity) - oBricks.Sum(o => o.Quantity));
+                
+                return remainingBricks;
+            }
+        }
     }
 }
