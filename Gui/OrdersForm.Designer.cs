@@ -35,6 +35,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.styleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.ordersGrid = new MetroFramework.Controls.MetroGrid();
+            this.orderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordersSummaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mtClients = new MetroFramework.Controls.MetroTile();
             this.mtDelivery = new MetroFramework.Controls.MetroTile();
             this.mtBricks = new MetroFramework.Controls.MetroTile();
@@ -43,15 +48,10 @@
             this.lnkEdit = new MetroFramework.Controls.MetroLink();
             this.lnkAdd = new MetroFramework.Controls.MetroLink();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordersSummaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.styleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersSummaryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // styleManager
@@ -117,13 +117,54 @@
             this.ordersGrid.SelectionChanged += new System.EventHandler(this.ordersGrid_SelectionChanged);
             this.ordersGrid.DoubleClick += new System.EventHandler(this.ordersGrid_DoubleClick_1);
             // 
+            // orderIdDataGridViewTextBoxColumn
+            // 
+            this.orderIdDataGridViewTextBoxColumn.DataPropertyName = "OrderId";
+            this.orderIdDataGridViewTextBoxColumn.HeaderText = "№";
+            this.orderIdDataGridViewTextBoxColumn.Name = "orderIdDataGridViewTextBoxColumn";
+            this.orderIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orderIdDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // orderedDateDataGridViewTextBoxColumn
+            // 
+            this.orderedDateDataGridViewTextBoxColumn.DataPropertyName = "OrderedDate";
+            this.orderedDateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.orderedDateDataGridViewTextBoxColumn.Name = "orderedDateDataGridViewTextBoxColumn";
+            this.orderedDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orderedDateDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // clientDataGridViewTextBoxColumn
+            // 
+            this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
+            this.clientDataGridViewTextBoxColumn.HeaderText = "Ф.И.О. Клиента";
+            this.clientDataGridViewTextBoxColumn.Name = "clientDataGridViewTextBoxColumn";
+            this.clientDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clientDataGridViewTextBoxColumn.Width = 280;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // ordersSummaryBindingSource
+            // 
+            this.ordersSummaryBindingSource.AllowNew = false;
+            this.ordersSummaryBindingSource.DataSource = typeof(BrickWorks.OrdersSummary);
+            // 
             // mtClients
             // 
             this.mtClients.ActiveControl = null;
             this.mtClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtClients.BackColor = System.Drawing.Color.Red;
             this.mtClients.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtClients.Location = new System.Drawing.Point(629, 204);
+            this.mtClients.Location = new System.Drawing.Point(623, 204);
             this.mtClients.Name = "mtClients";
             this.mtClients.Size = new System.Drawing.Size(107, 89);
             this.mtClients.Style = MetroFramework.MetroColorStyle.Lime;
@@ -142,7 +183,7 @@
             this.mtDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtDelivery.BackColor = System.Drawing.Color.Red;
             this.mtDelivery.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtDelivery.Location = new System.Drawing.Point(629, 299);
+            this.mtDelivery.Location = new System.Drawing.Point(623, 299);
             this.mtDelivery.Name = "mtDelivery";
             this.mtDelivery.Size = new System.Drawing.Size(107, 89);
             this.mtDelivery.Style = MetroFramework.MetroColorStyle.Purple;
@@ -161,7 +202,7 @@
             this.mtBricks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtBricks.BackColor = System.Drawing.Color.Red;
             this.mtBricks.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtBricks.Location = new System.Drawing.Point(629, 109);
+            this.mtBricks.Location = new System.Drawing.Point(623, 109);
             this.mtBricks.Name = "mtBricks";
             this.mtBricks.Size = new System.Drawing.Size(107, 89);
             this.mtBricks.Style = MetroFramework.MetroColorStyle.Blue;
@@ -180,7 +221,7 @@
             this.mtAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtAbout.BackColor = System.Drawing.Color.Red;
             this.mtAbout.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtAbout.Location = new System.Drawing.Point(629, 394);
+            this.mtAbout.Location = new System.Drawing.Point(623, 394);
             this.mtAbout.Name = "mtAbout";
             this.mtAbout.Size = new System.Drawing.Size(107, 89);
             this.mtAbout.Style = MetroFramework.MetroColorStyle.Magenta;
@@ -237,52 +278,11 @@
             this.lnkAdd.UseSelectable = true;
             this.lnkAdd.Click += new System.EventHandler(this.lnkAdd_Click);
             // 
-            // orderIdDataGridViewTextBoxColumn
-            // 
-            this.orderIdDataGridViewTextBoxColumn.DataPropertyName = "OrderId";
-            this.orderIdDataGridViewTextBoxColumn.HeaderText = "№";
-            this.orderIdDataGridViewTextBoxColumn.Name = "orderIdDataGridViewTextBoxColumn";
-            this.orderIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.orderIdDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // orderedDateDataGridViewTextBoxColumn
-            // 
-            this.orderedDateDataGridViewTextBoxColumn.DataPropertyName = "OrderedDate";
-            this.orderedDateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.orderedDateDataGridViewTextBoxColumn.Name = "orderedDateDataGridViewTextBoxColumn";
-            this.orderedDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.orderedDateDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // clientDataGridViewTextBoxColumn
-            // 
-            this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
-            this.clientDataGridViewTextBoxColumn.HeaderText = "Ф.И.О. Клиента";
-            this.clientDataGridViewTextBoxColumn.Name = "clientDataGridViewTextBoxColumn";
-            this.clientDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clientDataGridViewTextBoxColumn.Width = 280;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // ordersSummaryBindingSource
-            // 
-            this.ordersSummaryBindingSource.AllowNew = false;
-            this.ordersSummaryBindingSource.DataSource = typeof(BrickWorks.OrdersSummary);
-            // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 497);
+            this.ClientSize = new System.Drawing.Size(753, 497);
             this.Controls.Add(this.ordersGrid);
             this.Controls.Add(this.mtClients);
             this.Controls.Add(this.mtDelivery);
@@ -295,12 +295,12 @@
             this.Name = "OrdersForm";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Text = "ЗАКАЗЫ                                 АРМ Менеджер кирпичного завода";
+            this.Text = "ЗАКАЗЫ                              АИС Управление кирпичным заводом";
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.styleManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersSummaryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

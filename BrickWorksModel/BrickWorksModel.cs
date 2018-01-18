@@ -13,7 +13,7 @@ namespace BrickWorks
     {
         static BrickWorksModel()
         {
-            Database.SetInitializer(new MyInitializer());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         public BrickWorksModel()

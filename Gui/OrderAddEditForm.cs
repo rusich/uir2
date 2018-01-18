@@ -38,6 +38,7 @@ namespace BrickWorks
             });
             bricksInOrderViewBindingSource.DataSource = bricks.ToList();
             bricksGrid.Refresh();
+            CalcTotal();
         }
 
         private void OrderAddEditForm_Load(object sender, EventArgs e)
@@ -193,6 +194,33 @@ namespace BrickWorks
                 mteDelivery.Text = Convert.ToString(frm.DeliveryCost);
 
             }
+            CalcTotal();
+        }
+
+        private void CalcTotal()
+        {
+            double sum = 0;
+            for(int i=0; i<bricksGrid.RowCount; i++)
+            {
+                sum += (float)bricksGrid.Rows[i].Cells[3].Value;
+            }
+            
+            if(mteDelivery.Text.Trim().Length>0)
+                sum += Convert.ToDouble(mteDelivery.Text.ToString());
+
+            sum = Math.Round(sum, 2);
+
+            lblTotal.Text = sum.ToString()+" р.";
+        }
+
+        private void mteDelivery_TextChanged(object sender, EventArgs e)
+        {
+            CalcTotal();
+        }
+
+        private void metroLabel4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
